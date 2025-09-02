@@ -1,0 +1,17 @@
+[
+    {
+      "directory": ".",
+      "command": "clang --target=aarch64-none-elf -mcpu=cortex-a72 -ffreestanding -nostdlib -fno-builtin -fno-stack-protector -Wall -nostartfiles -mgeneral-regs-only -Iinclude -DRPI_VERSION=4 -DQEMU_TESTING -MMD -c ${file} -o build/${fileBasenameNoExtension}_c.o",
+      "file": "${workspaceFolder}/src/*.c"
+    },
+    {
+      "directory": ".",
+      "command": "clang --target=aarch64-none-elf -mcpu=cortex-a72 -ffreestanding -nostdlib -fno-builtin -fno-stack-protector -c ${file} -o build/${fileBasenameNoExtension}_s.o",
+      "file": "${workspaceFolder}/src/*.s"
+    },
+    {
+      "directory": ".",
+      "command": "clang --target=aarch64-none-elf -mcpu=cortex-a72 -ffreestanding -nostdlib -fno-builtin -fno-stack-protector -Wall -nostartfiles -mgeneral-regs-only -Iinclude -DRPI_VERSION=4 -DQEMU_TESTING -c ${file} -o build/${fileBasenameNoExtension}_S.o",
+      "file": "${workspaceFolder}/src/*.S"
+    }
+  ]
