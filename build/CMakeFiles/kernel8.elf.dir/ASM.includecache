@@ -1,0 +1,14 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/spider/dev/kora/koraos/src/boot.S
+
+/Users/spider/dev/kora/koraos/src/mm.S
+
+/Users/spider/dev/kora/koraos/src/utils.S
+
