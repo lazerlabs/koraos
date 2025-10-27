@@ -1,20 +1,15 @@
-#include "common.h"
 #include "mini_uart.h"
 
-void kernel_main() {
-    enable_uart();
+void kernel_main(void) {
+    uart_init();
+    uart_putc('K');
 
-    uart_puts("KorOS Initializing...\n");
+    while (1) {
+        unsigned char c = uart_getc();
+        uart_putc(c);
 
-#if RPI_VERSION == 3
-    uart_puts("\tBoard: Raspberry PI 3\n");
-#endif
-
-#if RPI_VERSION == 4
-    uart_puts("\tBoard: Raspberry PI 4\n");
-#endif
-
-    uart_puts("\n\nDone\n");
-
+        /*if (c == '\r') {
+            uart_putc('\n');
+        }*/
+    }
 }
-

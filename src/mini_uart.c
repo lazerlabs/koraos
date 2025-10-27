@@ -1,163 +1,74 @@
-#include "gpio.h"
-#include "utils.h"
 #include "mini_uart.h"
+#include "utils.h"
 
-#include "memory_access.h"
+#define PBASE               0x7E000000UL
 
-#define UART0_DR   (UART0_BASE + 0x00)
-#define UART0_FR   (UART0_BASE + 0x18)
-#define UART0_IBRD (UART0_BASE + 0x24)
-#define UART0_FBRD (UART0_BASE + 0x28)
-#define UART0_LCRH (UART0_BASE + 0x2C)
-#define UART0_CR   (UART0_BASE + 0x30)
+#define GPIO_BASE           (PBASE + 0x200000UL)
+#define GPFSEL1             (GPIO_BASE + 0x04)
+#define GPPUD               (GPIO_BASE + 0x94)
+#define GPPUDCLK0           (GPIO_BASE + 0x98)
 
+#define AUX_BASE            (PBASE + 0x215000UL)
+#define AUX_ENABLES         (AUX_BASE + 0x04)
+#define AUX_MU_IO_REG       (AUX_BASE + 0x40)
+#define AUX_MU_IER_REG      (AUX_BASE + 0x44)
+#define AUX_MU_IIR_REG      (AUX_BASE + 0x48)
+#define AUX_MU_LCR_REG      (AUX_BASE + 0x4C)
+#define AUX_MU_LSR_REG      (AUX_BASE + 0x54)
+#define AUX_MU_CNTL_REG     (AUX_BASE + 0x60)
+#define AUX_MU_BAUD_REG     (AUX_BASE + 0x68)
 
-uint64_t get_uart_base(){
-    return UART0_BASE;
+#define BAUD_RATE_51        51U
+#define MU_LSR_RX_READY     (1U << 0)
+#define MU_LSR_TX_EMPTY     (1U << 5)
+#define MU_FIFO_CLEAR       0x06U
+#define MU_8BIT_MODE        0x01U
+#define MU_TX_RX_ENABLE     0x03U
+
+static inline void mmio_write(uintptr_t addr, uint32_t value) {
+    *(volatile uint32_t *)addr = value;
 }
 
-void enable_uart() {
-    write32(UART0_CR, 0x0);
-
-    write32(UART0_IBRD, 1);
-    write32(UART0_FBRD, 40);
-
-    write32(UART0_LCRH, (1 << 4) | (1 << 5) | (1 << 6));
-
-    write32(UART0_CR, (1 << 0) | (1 << 8) | (1 << 9));
+static inline uint32_t mmio_read(uintptr_t addr) {
+    return *(volatile uint32_t *)addr;
 }
 
-void uart_raw_putc(const char c) {
-    while (read32(UART0_FR) & (1 << 5));
-    write32(UART0_DR, c);
+void uart_init(void) {
+    uint32_t selector;
+
+    mmio_write(AUX_ENABLES, 0);
+    mmio_write(AUX_MU_CNTL_REG, 0);
+    mmio_write(AUX_MU_IER_REG, 0);
+
+    selector = mmio_read(GPFSEL1);
+    selector &= ~((7U << 12) | (7U << 15));
+    selector |= (2U << 12) | (2U << 15);
+    mmio_write(GPFSEL1, selector);
+
+    mmio_write(GPPUD, 0);
+    delay(150);
+    mmio_write(GPPUDCLK0, (1U << 14) | (1U << 15));
+    delay(150);
+    mmio_write(GPPUDCLK0, 0);
+
+    mmio_write(AUX_MU_IIR_REG, MU_FIFO_CLEAR);
+    mmio_write(AUX_MU_LCR_REG, MU_8BIT_MODE);
+    mmio_write(AUX_MU_BAUD_REG, BAUD_RATE_51);
+
+    mmio_write(AUX_ENABLES, 1);
+    mmio_write(AUX_MU_CNTL_REG, MU_TX_RX_ENABLE);
 }
 
-void uart_putc(const char c){
-    uart_raw_putc(c);
-}
-
-void uart_puts(const char *s) {
-    uart_raw_puts(s);
-}
-
-void uart_raw_puts(const char *s) {
-    while (*s != '\0') {
-        uart_raw_putc(*s);
-        s++;
+void uart_putc(unsigned char c) {
+    while (!(mmio_read(AUX_MU_LSR_REG) & MU_LSR_TX_EMPTY)) {
     }
+
+    mmio_write(AUX_MU_IO_REG, (uint32_t)c);
 }
 
-void uart_puthex(uint64_t value) {
-    bool started = false;
-    uart_raw_putc('0');
-    uart_raw_putc('x');
-    for (int i = 60; i >= 0; i -= 4) {
-        uint8_t nibble = (value >> i) & 0xF;
-        char curr_char = nibble < 10 ? '0' + nibble : 'A' + (nibble - 10);
-        if (started || curr_char != '0' || i == 0) {
-            started = true;
-            uart_raw_putc(curr_char);
-        }
+unsigned char uart_getc(void) {
+    while (!(mmio_read(AUX_MU_LSR_REG) & MU_LSR_RX_READY)) {
     }
+
+    return (unsigned char)(mmio_read(AUX_MU_IO_REG) & 0xFFU);
 }
-
-
-
-
-
-/*
-  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-#define TXD 14
-#define RXD 15
-
-void uart_init() {
-#ifdef QEMU_TESTING
-    // PL011 on GPIO14/15 uses ALT0
-    gpio_pin_set_func(TXD, GFAlt0);
-    gpio_pin_set_func(RXD, GFAlt0);
-    gpio_pin_enable(TXD);
-    gpio_pin_enable(RXD);
-
-    // Disable UART before config
-    REGS_PL011->cr = 0;
-    // Clear interrupts
-    REGS_PL011->icr = 0x7FF;
-
-    // Baud = 115200 assuming 48MHz UARTCLK
-    REGS_PL011->ibrd = 26; // integer divisor
-    REGS_PL011->fbrd = 3;  // fractional divisor
-
-    // 8N1, FIFO enabled
-    REGS_PL011->lcrh = (1 << 4) | (3 << 5);
-
-    // Mask all interrupts
-    REGS_PL011->imsc = 0;
-
-    // Enable UART, TX, RX
-    REGS_PL011->cr = (1 << 0) | (1 << 8) | (1 << 9);
-#else
-    // Mini UART on GPIO14/15 uses ALT5
-    gpio_pin_set_func(TXD, GFAlt5);
-    gpio_pin_set_func(RXD, GFAlt5);
-
-    gpio_pin_enable(TXD);
-    gpio_pin_enable(RXD);
-
-    REGS_AUX->enables = 1;
-    REGS_AUX->mu_control = 0;
-    REGS_AUX->mu_ier = 0;
-    REGS_AUX->mu_lcr = 3;
-    REGS_AUX->mu_mcr = 0;
-
-#if RPI_VERSION == 3
-    REGS_AUX->mu_baud_rate = 270; // = 115200 @ 250 Mhz
-#endif
-
-#if RPI_VERSION == 4
-    REGS_AUX->mu_baud_rate = 541; // = 115200 @ 500 Mhz
-#endif
-
-    REGS_AUX->mu_control = 3;
-#endif
-
-    uart_send('\r');
-    uart_send('\n');
-    uart_send('\n');
-}
-
-void uart_send(char c) {
-#ifdef QEMU_TESTING
-    // Wait until TX FIFO not full
-    while (REGS_PL011->fr & (1 << 5)) {
-    }
-    REGS_PL011->dr = (uint32_t)c;
-#else
-    while(!(REGS_AUX->mu_lsr & 0x20));
-    REGS_AUX->mu_io = c;
-#endif
-}
-
-char uart_recv() {
-#ifdef QEMU_TESTING
-    // Wait until RX FIFO not empty
-    while (REGS_PL011->fr & (1 << 4)) {
-    }
-    return (char)(REGS_PL011->dr & 0xFF);
-#else
-    while(!(REGS_AUX->mu_lsr & 1));
-    return REGS_AUX->mu_io & 0xFF;
-#endif
-}
-
-void uart_send_string(char *str) {
-    while(*str) {
-        if (*str == '\n') {
-            uart_send('\r');
-        }
-        uart_send(*str);
-        str++;
-    }
-}
-
-*/
