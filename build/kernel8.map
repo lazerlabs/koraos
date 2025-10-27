@@ -21,72 +21,72 @@ Linker script and memory map
                 0x0000000000080000                . = 0x80000
                 0x0000000000080000                kernel_start = .
 
-.boot           0x0000000000080000    0x800c8
+.boot           0x0000000000080000    0x800a0
  *boot*.o(.text)
  *boot*.obj(.text)
- .text          0x0000000000080000    0x800c8 CMakeFiles/kernel8.elf.dir/src/boot.S.obj
+ .text          0x0000000000080000    0x800a0 CMakeFiles/kernel8.elf.dir/src/boot.S.obj
                 0x0000000000100000                _start
 
-.text           0x00000000001000d0      0x5bc
+.text           0x00000000001000a0      0x5bc
  *(EXCLUDE_FILE(shared/*.o) .text .text.[!p]*)
- .text          0x00000000001000d0      0x168 CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
-                0x00000000001000d0                gpio_pin_set_func
-                0x00000000001001a0                gpio_pin_enable
- *fill*         0x0000000000100238        0x8 
- .text          0x0000000000100240       0x38 CMakeFiles/kernel8.elf.dir/src/kernel.c.obj
-                0x0000000000100240                kernel_main
- *fill*         0x0000000000100278        0x8 
- .text          0x0000000000100280      0x154 CMakeFiles/kernel8.elf.dir/src/memory_access.c.obj
-                0x0000000000100280                read8
-                0x00000000001002a0                write8
-                0x00000000001002c0                read16
-                0x00000000001002e0                write16
-                0x0000000000100300                read32
-                0x0000000000100320                write32
-                0x0000000000100340                read64
-                0x0000000000100360                write64
-                0x0000000000100380                write
-                0x00000000001003b0                read
- *fill*         0x00000000001003d4        0xc 
- .text          0x00000000001003e0      0x280 CMakeFiles/kernel8.elf.dir/src/mini_uart.c.obj
-                0x00000000001003e0                get_uart_base
-                0x00000000001003f0                enable_uart
-                0x0000000000100470                uart_raw_putc
-                0x00000000001004c0                uart_putc
-                0x00000000001004f0                uart_puts
-                0x0000000000100520                uart_raw_puts
-                0x0000000000100570                uart_puthex
- .text          0x0000000000100660       0x10 CMakeFiles/kernel8.elf.dir/src/mm.S.obj
-                0x0000000000100660                memzero
- .text          0x0000000000100670       0x1c CMakeFiles/kernel8.elf.dir/src/utils.S.obj
-                0x0000000000100670                delay
-                0x000000000010067c                put32
-                0x0000000000100684                get32
+ .text          0x00000000001000a0      0x168 CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
+                0x00000000001000a0                gpio_pin_set_func
+                0x0000000000100170                gpio_pin_enable
+ *fill*         0x0000000000100208        0x8 
+ .text          0x0000000000100210       0x38 CMakeFiles/kernel8.elf.dir/src/kernel.c.obj
+                0x0000000000100210                kernel_main
+ *fill*         0x0000000000100248        0x8 
+ .text          0x0000000000100250      0x154 CMakeFiles/kernel8.elf.dir/src/memory_access.c.obj
+                0x0000000000100250                read8
+                0x0000000000100270                write8
+                0x0000000000100290                read16
+                0x00000000001002b0                write16
+                0x00000000001002d0                read32
+                0x00000000001002f0                write32
+                0x0000000000100310                read64
+                0x0000000000100330                write64
+                0x0000000000100350                write
+                0x0000000000100380                read
+ *fill*         0x00000000001003a4        0xc 
+ .text          0x00000000001003b0      0x280 CMakeFiles/kernel8.elf.dir/src/mini_uart.c.obj
+                0x00000000001003b0                get_uart_base
+                0x00000000001003c0                enable_uart
+                0x0000000000100440                uart_raw_putc
+                0x0000000000100490                uart_putc
+                0x00000000001004c0                uart_puts
+                0x00000000001004f0                uart_raw_puts
+                0x0000000000100540                uart_puthex
+ .text          0x0000000000100630       0x10 CMakeFiles/kernel8.elf.dir/src/mm.S.obj
+                0x0000000000100630                memzero
+ .text          0x0000000000100640       0x1c CMakeFiles/kernel8.elf.dir/src/utils.S.obj
+                0x0000000000100640                delay
+                0x000000000010064c                put32
+                0x0000000000100654                get32
 
-.rodata.str1.1  0x000000000010068c       0x37
+.rodata.str1.1  0x000000000010065c       0x37
  .rodata.str1.1
-                0x000000000010068c       0x37 CMakeFiles/kernel8.elf.dir/src/kernel.c.obj
+                0x000000000010065c       0x37 CMakeFiles/kernel8.elf.dir/src/kernel.c.obj
 
-.iplt           0x00000000001006c4        0x0
- .iplt          0x00000000001006c4        0x0 CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
+.iplt           0x0000000000100694        0x0
+ .iplt          0x0000000000100694        0x0 CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
 
-.rela.dyn       0x00000000001006c8        0x0
- .rela.iplt     0x00000000001006c8        0x0 CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
- .rela.text     0x00000000001006c8        0x0 CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
+.rela.dyn       0x0000000000100698        0x0
+ .rela.iplt     0x0000000000100698        0x0 CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
+ .rela.text     0x0000000000100698        0x0 CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
 
 .data
  *(.data)
-                0x00000000001006c3                __bss_start = .
+                0x0000000000100693                __bss_start = .
 
-.igot.plt       0x00000000001006c8        0x0
- .igot.plt      0x00000000001006c8        0x0 CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
+.igot.plt       0x0000000000100698        0x0
+ .igot.plt      0x0000000000100698        0x0 CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
 
-.bss            0x00000000001006c3        0x0
-                0x00000000001006c3                bss = .
+.bss            0x0000000000100693        0x0
+                0x0000000000100693                bss = .
  *(.bss)
                 0x0000000000101000                . = ALIGN (0x1000)
                 0x0000000000101000                __bss_end = .
-                0x000000000000093d                __bss_size = (__bss_end - __bss_start)
+                0x000000000000096d                __bss_size = (__bss_end - __bss_start)
 
 .vectors
  *(.vectors)
@@ -149,14 +149,14 @@ LOAD linker stubs
  .debug_abbrev  0x000000000000025a       0x21 CMakeFiles/kernel8.elf.dir/src/mm.S.obj
  .debug_abbrev  0x000000000000027b       0x21 CMakeFiles/kernel8.elf.dir/src/utils.S.obj
 
-.debug_info     0x0000000000000000      0x7b3
+.debug_info     0x0000000000000000      0x788
  .debug_info    0x0000000000000000      0x18a CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
  .debug_info    0x000000000000018a       0x79 CMakeFiles/kernel8.elf.dir/src/kernel.c.obj
  .debug_info    0x0000000000000203      0x1b5 CMakeFiles/kernel8.elf.dir/src/memory_access.c.obj
  .debug_info    0x00000000000003b8      0x121 CMakeFiles/kernel8.elf.dir/src/mini_uart.c.obj
- .debug_info    0x00000000000004d9      0x15f CMakeFiles/kernel8.elf.dir/src/boot.S.obj
- .debug_info    0x0000000000000638       0xa6 CMakeFiles/kernel8.elf.dir/src/mm.S.obj
- .debug_info    0x00000000000006de       0xd5 CMakeFiles/kernel8.elf.dir/src/utils.S.obj
+ .debug_info    0x00000000000004d9      0x134 CMakeFiles/kernel8.elf.dir/src/boot.S.obj
+ .debug_info    0x000000000000060d       0xa6 CMakeFiles/kernel8.elf.dir/src/mm.S.obj
+ .debug_info    0x00000000000006b3       0xd5 CMakeFiles/kernel8.elf.dir/src/utils.S.obj
 
 .debug_str_offsets
                 0x0000000000000000      0x1a8
@@ -206,14 +206,14 @@ LOAD linker stubs
  .debug_frame   0x0000000000000090      0x158 CMakeFiles/kernel8.elf.dir/src/memory_access.c.obj
  .debug_frame   0x00000000000001e8       0xf0 CMakeFiles/kernel8.elf.dir/src/mini_uart.c.obj
 
-.debug_line     0x0000000000000000      0x552
+.debug_line     0x0000000000000000      0x54e
  .debug_line    0x0000000000000000      0x136 CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
  .debug_line    0x0000000000000136       0x78 CMakeFiles/kernel8.elf.dir/src/kernel.c.obj
  .debug_line    0x00000000000001ae      0x12c CMakeFiles/kernel8.elf.dir/src/memory_access.c.obj
  .debug_line    0x00000000000002da      0x17a CMakeFiles/kernel8.elf.dir/src/mini_uart.c.obj
- .debug_line    0x0000000000000454       0x6d CMakeFiles/kernel8.elf.dir/src/boot.S.obj
- .debug_line    0x00000000000004c1       0x47 CMakeFiles/kernel8.elf.dir/src/mm.S.obj
- .debug_line    0x0000000000000508       0x4a CMakeFiles/kernel8.elf.dir/src/utils.S.obj
+ .debug_line    0x0000000000000454       0x69 CMakeFiles/kernel8.elf.dir/src/boot.S.obj
+ .debug_line    0x00000000000004bd       0x47 CMakeFiles/kernel8.elf.dir/src/mm.S.obj
+ .debug_line    0x0000000000000504       0x4a CMakeFiles/kernel8.elf.dir/src/utils.S.obj
 
 .debug_line_str
                 0x0000000000000000      0x1ab
