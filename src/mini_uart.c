@@ -1,74 +1,130 @@
 #include "mini_uart.h"
+#include "peripherals/gpio.h"
 #include "utils.h"
 
-#define PBASE               0x7E000000UL
-
-#define GPIO_BASE           (PBASE + 0x200000UL)
-#define GPFSEL1             (GPIO_BASE + 0x04)
-#define GPPUD               (GPIO_BASE + 0x94)
-#define GPPUDCLK0           (GPIO_BASE + 0x98)
-
-#define AUX_BASE            (PBASE + 0x215000UL)
-#define AUX_ENABLES         (AUX_BASE + 0x04)
-#define AUX_MU_IO_REG       (AUX_BASE + 0x40)
-#define AUX_MU_IER_REG      (AUX_BASE + 0x44)
-#define AUX_MU_IIR_REG      (AUX_BASE + 0x48)
-#define AUX_MU_LCR_REG      (AUX_BASE + 0x4C)
-#define AUX_MU_LSR_REG      (AUX_BASE + 0x54)
-#define AUX_MU_CNTL_REG     (AUX_BASE + 0x60)
-#define AUX_MU_BAUD_REG     (AUX_BASE + 0x68)
-
-#define BAUD_RATE_51        51U
-#define MU_LSR_RX_READY     (1U << 0)
-#define MU_LSR_TX_EMPTY     (1U << 5)
-#define MU_FIFO_CLEAR       0x06U
-#define MU_8BIT_MODE        0x01U
-#define MU_TX_RX_ENABLE     0x03U
-
-static inline void mmio_write(uintptr_t addr, uint32_t value) {
-    *(volatile uint32_t *)addr = value;
-}
-
-static inline uint32_t mmio_read(uintptr_t addr) {
-    return *(volatile uint32_t *)addr;
-}
+#ifdef QEMU_TESTING
+// Use PL011 UART for QEMU which has better support
+#include "peripherals/pl011.h"
 
 void uart_init(void) {
-    uint32_t selector;
-
-    mmio_write(AUX_ENABLES, 0);
-    mmio_write(AUX_MU_CNTL_REG, 0);
-    mmio_write(AUX_MU_IER_REG, 0);
-
-    selector = mmio_read(GPFSEL1);
-    selector &= ~((7U << 12) | (7U << 15));
-    selector |= (2U << 12) | (2U << 15);
-    mmio_write(GPFSEL1, selector);
-
-    mmio_write(GPPUD, 0);
+    // Disable UART
+    REGS_PL011->cr = 0;
+    
+    // Wait for end of transmission
+    while (REGS_PL011->fr & (1 << 3)) { }
+    
+    // Configure GPIO pins 14 and 15 for PL011 UART (Alt0)
+    uint32_t selector = REGS_GPIO->func_select[1];
+    selector &= ~((7 << 12) | (7 << 15));  // Clear pins 14 and 15
+    selector |= (4 << 12) | (4 << 15);     // Set to Alt0 (PL011 UART)
+    REGS_GPIO->func_select[1] = selector;
+    
+    // Disable pull-up/pull-down for pins 14 and 15
+    REGS_GPIO->pupd_enable = 0;
     delay(150);
-    mmio_write(GPPUDCLK0, (1U << 14) | (1U << 15));
+    REGS_GPIO->pupd_enable_clocks[0] = (1 << 14) | (1 << 15);
     delay(150);
-    mmio_write(GPPUDCLK0, 0);
-
-    mmio_write(AUX_MU_IIR_REG, MU_FIFO_CLEAR);
-    mmio_write(AUX_MU_LCR_REG, MU_8BIT_MODE);
-    mmio_write(AUX_MU_BAUD_REG, BAUD_RATE_51);
-
-    mmio_write(AUX_ENABLES, 1);
-    mmio_write(AUX_MU_CNTL_REG, MU_TX_RX_ENABLE);
+    REGS_GPIO->pupd_enable_clocks[0] = 0;
+    
+    // Clear pending interrupts
+    REGS_PL011->icr = 0x7FF;
+    
+    // Set baud rate to 115200
+    // UART clock = 3MHz, baud = 115200
+    // Divisor = 3000000 / (16 * 115200) = 1.627
+    // Integer part = 1, Fractional part = 0.627 * 64 = 40
+    REGS_PL011->ibrd = 1;
+    REGS_PL011->fbrd = 40;
+    
+    // Enable FIFO, 8-bit data, 1 stop bit, no parity
+    REGS_PL011->lcrh = (1 << 4) | (3 << 5);
+    
+    // Mask all interrupts
+    REGS_PL011->imsc = 0;
+    
+    // Enable UART, transmit, and receive
+    REGS_PL011->cr = (1 << 0) | (1 << 8) | (1 << 9);
 }
 
 void uart_putc(unsigned char c) {
-    while (!(mmio_read(AUX_MU_LSR_REG) & MU_LSR_TX_EMPTY)) {
+    // Wait until transmit FIFO is not full (FR bit 5)
+    while (REGS_PL011->fr & (1 << 5)) {
+        // Wait
     }
-
-    mmio_write(AUX_MU_IO_REG, (uint32_t)c);
+    
+    // Write the character
+    REGS_PL011->dr = (uint32_t)c;
 }
 
 unsigned char uart_getc(void) {
-    while (!(mmio_read(AUX_MU_LSR_REG) & MU_LSR_RX_READY)) {
+    // Wait until receive FIFO is not empty (FR bit 4)
+    while (REGS_PL011->fr & (1 << 4)) {
+        // Wait
     }
-
-    return (unsigned char)(mmio_read(AUX_MU_IO_REG) & 0xFFU);
+    
+    // Read and return the character
+    return (unsigned char)(REGS_PL011->dr & 0xFF);
 }
+
+#else
+// Use Mini UART for real hardware
+#include "peripherals/aux.h"
+
+void uart_init(void) {
+    // Enable mini UART (this also enables access to its registers)
+    REGS_AUX->enables = 1;
+    
+    // Disable transmitter and receiver during configuration
+    REGS_AUX->mu_control = 0;
+    
+    // Disable interrupts
+    REGS_AUX->mu_ier = 0;
+    
+    // Clear FIFOs
+    REGS_AUX->mu_iir = 0xC6;
+    
+    // Set 8-bit mode
+    REGS_AUX->mu_lcr = 0x03;
+    
+    // Set baud rate to 115200
+    // Baud rate = system_clock / (8 * (baudrate_reg + 1))
+    // For 250MHz system clock: 250000000 / (8 * 115200) = 270
+    REGS_AUX->mu_baud_rate = 270;
+    
+    // Configure GPIO pins 14 and 15 for Mini UART (Alt5)
+    uint32_t selector = REGS_GPIO->func_select[1];
+    selector &= ~((7 << 12) | (7 << 15));  // Clear pins 14 and 15
+    selector |= (2 << 12) | (2 << 15);     // Set to Alt5 (Mini UART)
+    REGS_GPIO->func_select[1] = selector;
+    
+    // Disable pull-up/pull-down for pins 14 and 15
+    REGS_GPIO->pupd_enable = 0;
+    delay(150);
+    REGS_GPIO->pupd_enable_clocks[0] = (1 << 14) | (1 << 15);
+    delay(150);
+    REGS_GPIO->pupd_enable_clocks[0] = 0;
+    
+    // Enable transmitter and receiver
+    REGS_AUX->mu_control = 0x03;
+}
+
+void uart_putc(unsigned char c) {
+    // Wait until transmitter is ready (LSR bit 5 = transmitter empty)
+    while (!(REGS_AUX->mu_lsr & (1 << 5))) {
+        // Wait
+    }
+    
+    // Write the character
+    REGS_AUX->mu_io = (uint32_t)c;
+}
+
+unsigned char uart_getc(void) {
+    // Wait until data is available (LSR bit 0 = data ready)
+    while (!(REGS_AUX->mu_lsr & (1 << 0))) {
+        // Wait
+    }
+    
+    // Read and return the character
+    return (unsigned char)(REGS_AUX->mu_io & 0xFF);
+}
+#endif
