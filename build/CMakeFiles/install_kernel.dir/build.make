@@ -66,11 +66,7 @@ include CMakeFiles/install_kernel.dir/compiler_depend.make
 # Include the progress variables for this target.
 include CMakeFiles/install_kernel.dir/progress.make
 
-CMakeFiles/install_kernel: kernel8.elf
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/Users/spider/dev/kora/koraos/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Copying kernel to boot mount: /workspace/build/boot"
-	/opt/homebrew/bin/cmake -E make_directory /workspace/build/boot
-	/opt/homebrew/bin/cmake -E copy /Users/spider/dev/kora/koraos/build/kernel8.img /workspace/build/boot/kernel8-rpi4.img
-	/opt/homebrew/bin/cmake -E copy /Users/spider/dev/kora/koraos/config.txt /workspace/build/boot/config.txt
+CMakeFiles/install_kernel:
 
 CMakeFiles/install_kernel.dir/codegen:
 .PHONY : CMakeFiles/install_kernel.dir/codegen

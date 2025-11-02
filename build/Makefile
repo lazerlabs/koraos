@@ -117,17 +117,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named kernel8.elf
+# Target rules for targets named kernel_qemu
 
 # Build rule for target.
-kernel8.elf: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 kernel8.elf
-.PHONY : kernel8.elf
+kernel_qemu: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 kernel_qemu
+.PHONY : kernel_qemu
 
 # fast build rule for target.
-kernel8.elf/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel8.elf.dir/build.make CMakeFiles/kernel8.elf.dir/build
-.PHONY : kernel8.elf/fast
+kernel_qemu/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel_qemu.dir/build.make CMakeFiles/kernel_qemu.dir/build
+.PHONY : kernel_qemu/fast
+
+#=============================================================================
+# Target rules for targets named install_qemu
+
+# Build rule for target.
+install_qemu: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 install_qemu
+.PHONY : install_qemu
+
+# fast build rule for target.
+install_qemu/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/install_qemu.dir/build.make CMakeFiles/install_qemu.dir/build
+.PHONY : install_qemu/fast
 
 #=============================================================================
 # Target rules for targets named install_kernel
@@ -147,7 +160,7 @@ src/boot.obj: src/boot.S.obj
 
 # target to build an object file
 src/boot.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel8.elf.dir/build.make CMakeFiles/kernel8.elf.dir/src/boot.S.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel_qemu.dir/build.make CMakeFiles/kernel_qemu.dir/src/boot.S.obj
 .PHONY : src/boot.S.obj
 
 src/gpio.obj: src/gpio.c.obj
@@ -155,7 +168,7 @@ src/gpio.obj: src/gpio.c.obj
 
 # target to build an object file
 src/gpio.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel8.elf.dir/build.make CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel_qemu.dir/build.make CMakeFiles/kernel_qemu.dir/src/gpio.c.obj
 .PHONY : src/gpio.c.obj
 
 src/gpio.i: src/gpio.c.i
@@ -163,7 +176,7 @@ src/gpio.i: src/gpio.c.i
 
 # target to preprocess a source file
 src/gpio.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel8.elf.dir/build.make CMakeFiles/kernel8.elf.dir/src/gpio.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel_qemu.dir/build.make CMakeFiles/kernel_qemu.dir/src/gpio.c.i
 .PHONY : src/gpio.c.i
 
 src/gpio.s: src/gpio.c.s
@@ -171,7 +184,7 @@ src/gpio.s: src/gpio.c.s
 
 # target to generate assembly for a file
 src/gpio.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel8.elf.dir/build.make CMakeFiles/kernel8.elf.dir/src/gpio.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel_qemu.dir/build.make CMakeFiles/kernel_qemu.dir/src/gpio.c.s
 .PHONY : src/gpio.c.s
 
 src/kernel.obj: src/kernel.c.obj
@@ -179,7 +192,7 @@ src/kernel.obj: src/kernel.c.obj
 
 # target to build an object file
 src/kernel.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel8.elf.dir/build.make CMakeFiles/kernel8.elf.dir/src/kernel.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel_qemu.dir/build.make CMakeFiles/kernel_qemu.dir/src/kernel.c.obj
 .PHONY : src/kernel.c.obj
 
 src/kernel.i: src/kernel.c.i
@@ -187,7 +200,7 @@ src/kernel.i: src/kernel.c.i
 
 # target to preprocess a source file
 src/kernel.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel8.elf.dir/build.make CMakeFiles/kernel8.elf.dir/src/kernel.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel_qemu.dir/build.make CMakeFiles/kernel_qemu.dir/src/kernel.c.i
 .PHONY : src/kernel.c.i
 
 src/kernel.s: src/kernel.c.s
@@ -195,7 +208,7 @@ src/kernel.s: src/kernel.c.s
 
 # target to generate assembly for a file
 src/kernel.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel8.elf.dir/build.make CMakeFiles/kernel8.elf.dir/src/kernel.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel_qemu.dir/build.make CMakeFiles/kernel_qemu.dir/src/kernel.c.s
 .PHONY : src/kernel.c.s
 
 src/memory_access.obj: src/memory_access.c.obj
@@ -203,7 +216,7 @@ src/memory_access.obj: src/memory_access.c.obj
 
 # target to build an object file
 src/memory_access.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel8.elf.dir/build.make CMakeFiles/kernel8.elf.dir/src/memory_access.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel_qemu.dir/build.make CMakeFiles/kernel_qemu.dir/src/memory_access.c.obj
 .PHONY : src/memory_access.c.obj
 
 src/memory_access.i: src/memory_access.c.i
@@ -211,7 +224,7 @@ src/memory_access.i: src/memory_access.c.i
 
 # target to preprocess a source file
 src/memory_access.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel8.elf.dir/build.make CMakeFiles/kernel8.elf.dir/src/memory_access.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel_qemu.dir/build.make CMakeFiles/kernel_qemu.dir/src/memory_access.c.i
 .PHONY : src/memory_access.c.i
 
 src/memory_access.s: src/memory_access.c.s
@@ -219,7 +232,7 @@ src/memory_access.s: src/memory_access.c.s
 
 # target to generate assembly for a file
 src/memory_access.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel8.elf.dir/build.make CMakeFiles/kernel8.elf.dir/src/memory_access.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel_qemu.dir/build.make CMakeFiles/kernel_qemu.dir/src/memory_access.c.s
 .PHONY : src/memory_access.c.s
 
 src/mini_uart.obj: src/mini_uart.c.obj
@@ -227,7 +240,7 @@ src/mini_uart.obj: src/mini_uart.c.obj
 
 # target to build an object file
 src/mini_uart.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel8.elf.dir/build.make CMakeFiles/kernel8.elf.dir/src/mini_uart.c.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel_qemu.dir/build.make CMakeFiles/kernel_qemu.dir/src/mini_uart.c.obj
 .PHONY : src/mini_uart.c.obj
 
 src/mini_uart.i: src/mini_uart.c.i
@@ -235,7 +248,7 @@ src/mini_uart.i: src/mini_uart.c.i
 
 # target to preprocess a source file
 src/mini_uart.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel8.elf.dir/build.make CMakeFiles/kernel8.elf.dir/src/mini_uart.c.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel_qemu.dir/build.make CMakeFiles/kernel_qemu.dir/src/mini_uart.c.i
 .PHONY : src/mini_uart.c.i
 
 src/mini_uart.s: src/mini_uart.c.s
@@ -243,23 +256,15 @@ src/mini_uart.s: src/mini_uart.c.s
 
 # target to generate assembly for a file
 src/mini_uart.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel8.elf.dir/build.make CMakeFiles/kernel8.elf.dir/src/mini_uart.c.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel_qemu.dir/build.make CMakeFiles/kernel_qemu.dir/src/mini_uart.c.s
 .PHONY : src/mini_uart.c.s
-
-src/mm.obj: src/mm.S.obj
-.PHONY : src/mm.obj
-
-# target to build an object file
-src/mm.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel8.elf.dir/build.make CMakeFiles/kernel8.elf.dir/src/mm.S.obj
-.PHONY : src/mm.S.obj
 
 src/utils.obj: src/utils.S.obj
 .PHONY : src/utils.obj
 
 # target to build an object file
 src/utils.S.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel8.elf.dir/build.make CMakeFiles/kernel8.elf.dir/src/utils.S.obj
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/kernel_qemu.dir/build.make CMakeFiles/kernel_qemu.dir/src/utils.S.obj
 .PHONY : src/utils.S.obj
 
 # Help Target
@@ -271,7 +276,8 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... install_kernel"
-	@echo "... kernel8.elf"
+	@echo "... install_qemu"
+	@echo "... kernel_qemu"
 	@echo "... src/boot.obj"
 	@echo "... src/gpio.obj"
 	@echo "... src/gpio.i"
@@ -285,7 +291,6 @@ help:
 	@echo "... src/mini_uart.obj"
 	@echo "... src/mini_uart.i"
 	@echo "... src/mini_uart.s"
-	@echo "... src/mm.obj"
 	@echo "... src/utils.obj"
 .PHONY : help
 

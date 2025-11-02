@@ -6,6 +6,7 @@ SECTIONS {
     
     .text : {
         *boot*.o(.text .text.*)
+        *boot*.obj(.text .text.*)
         *(.text .text.*)
         *(.rodata .rodata.*)
     }

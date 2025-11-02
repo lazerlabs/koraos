@@ -30,6 +30,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/opt/homebrew/share/cmake/Modules/CMakeGenericSystem.cmake"
   "/opt/homebrew/share/cmake/Modules/CMakeInitializeConfigs.cmake"
   "/opt/homebrew/share/cmake/Modules/CMakeLanguageInformation.cmake"
+  "/opt/homebrew/share/cmake/Modules/CMakeParseArguments.cmake"
   "/opt/homebrew/share/cmake/Modules/CMakeParseImplicitIncludeInfo.cmake"
   "/opt/homebrew/share/cmake/Modules/CMakeParseImplicitLinkInfo.cmake"
   "/opt/homebrew/share/cmake/Modules/CMakeParseLibraryArchitecture.cmake"
@@ -119,6 +120,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/kernel8.elf.dir/DependInfo.cmake"
+  "CMakeFiles/kernel_qemu.dir/DependInfo.cmake"
+  "CMakeFiles/install_qemu.dir/DependInfo.cmake"
   "CMakeFiles/install_kernel.dir/DependInfo.cmake"
   )

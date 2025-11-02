@@ -22,6 +22,8 @@ events:
     candidate_directories:
       - "/opt/homebrew/opt/llvm/bin/"
       - "/Users/spider/.local/bin/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -40,6 +42,8 @@ events:
     searched_directories:
       - "/opt/homebrew/opt/llvm/bin/uname"
       - "/Users/spider/.local/bin/uname"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/uname"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/uname"
       - "/opt/homebrew/bin/uname"
       - "/opt/homebrew/sbin/uname"
       - "/usr/local/bin/uname"
@@ -49,6 +53,8 @@ events:
       ENV{PATH}:
         - "/opt/homebrew/opt/llvm/bin"
         - "/Users/spider/.local/bin"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -91,6 +97,8 @@ events:
     candidate_directories:
       - "/opt/homebrew/opt/llvm/bin/"
       - "/Users/spider/.local/bin/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -109,26 +117,15 @@ events:
     searched_directories:
       - "/opt/homebrew/opt/llvm/bin/ld.lld"
       - "/Users/spider/.local/bin/ld.lld"
-      - "/opt/homebrew/bin/ld.lld"
-      - "/opt/homebrew/sbin/ld.lld"
-      - "/usr/local/bin/ld.lld"
-      - "/System/Cryptexes/App/usr/bin/ld.lld"
-      - "/usr/bin/ld.lld"
-      - "/bin/ld.lld"
-      - "/usr/sbin/ld.lld"
-      - "/sbin/ld.lld"
-      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/ld.lld"
-      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/ld.lld"
-      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/ld.lld"
-      - "/Library/Apple/usr/bin/ld.lld"
-      - "/Users/spider/.cache/lm-studio/bin/ld.lld"
-      - "/Applications/ArmGNUToolchain/14.3.rel1/aarch64-none-elf/bin/ld.lld"
-      - "/opt/homebrew/opt/fzf/bin/ld.lld"
-    found: false
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/ld.lld"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/ld.lld"
+    found: "/opt/homebrew/bin/ld.lld"
     search_context:
       ENV{PATH}:
         - "/opt/homebrew/opt/llvm/bin"
         - "/Users/spider/.local/bin"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -177,6 +174,8 @@ events:
       ENV{PATH}:
         - "/opt/homebrew/opt/llvm/bin"
         - "/Users/spider/.local/bin"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -228,6 +227,8 @@ events:
     candidate_directories:
       - "/opt/homebrew/opt/llvm/bin/"
       - "/Users/spider/.local/bin/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -246,6 +247,8 @@ events:
     searched_directories:
       - "/opt/homebrew/opt/llvm/bin/gmake"
       - "/Users/spider/.local/bin/gmake"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/gmake"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/gmake"
       - "/opt/homebrew/bin/gmake"
       - "/opt/homebrew/sbin/gmake"
       - "/usr/local/bin/gmake"
@@ -263,6 +266,8 @@ events:
       - "/opt/homebrew/opt/fzf/bin/gmake"
       - "/opt/homebrew/opt/llvm/bin/make"
       - "/Users/spider/.local/bin/make"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/make"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/make"
       - "/opt/homebrew/bin/make"
       - "/opt/homebrew/sbin/make"
       - "/usr/local/bin/make"
@@ -272,6 +277,8 @@ events:
       ENV{PATH}:
         - "/opt/homebrew/opt/llvm/bin"
         - "/Users/spider/.local/bin"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -314,6 +321,8 @@ events:
     candidate_directories:
       - "/opt/homebrew/opt/llvm/bin/"
       - "/Users/spider/.local/bin/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -334,6 +343,8 @@ events:
       ENV{PATH}:
         - "/opt/homebrew/opt/llvm/bin"
         - "/Users/spider/.local/bin"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -383,6 +394,8 @@ events:
       ENV{PATH}:
         - "/opt/homebrew/opt/llvm/bin"
         - "/Users/spider/.local/bin"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -448,6 +461,8 @@ events:
     candidate_directories:
       - "/opt/homebrew/opt/llvm/bin/"
       - "/Users/spider/.local/bin/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -468,6 +483,8 @@ events:
       ENV{PATH}:
         - "/opt/homebrew/opt/llvm/bin"
         - "/Users/spider/.local/bin"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -511,6 +528,8 @@ events:
     candidate_directories:
       - "/opt/homebrew/opt/llvm/bin/"
       - "/Users/spider/.local/bin/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -531,6 +550,8 @@ events:
       ENV{PATH}:
         - "/opt/homebrew/opt/llvm/bin"
         - "/Users/spider/.local/bin"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -574,6 +595,8 @@ events:
     candidate_directories:
       - "/opt/homebrew/opt/llvm/bin/"
       - "/Users/spider/.local/bin/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -594,93 +617,8 @@ events:
       ENV{PATH}:
         - "/opt/homebrew/opt/llvm/bin"
         - "/Users/spider/.local/bin"
-        - "/opt/homebrew/bin"
-        - "/opt/homebrew/sbin"
-        - "/usr/local/bin"
-        - "/System/Cryptexes/App/usr/bin"
-        - "/usr/bin"
-        - "/bin"
-        - "/usr/sbin"
-        - "/sbin"
-        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin"
-        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin"
-        - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin"
-        - "/Library/Apple/usr/bin"
-        - "/opt/homebrew/opt/llvm/bin"
-        - "/Users/spider/.local/bin"
-        - "/Users/spider/.cache/lm-studio/bin"
-        - "/Applications/ArmGNUToolchain/14.3.rel1/aarch64-none-elf/bin"
-        - "/opt/homebrew/opt/fzf/bin"
-        - "/Users/spider/.cache/lm-studio/bin"
-        - "/Applications/ArmGNUToolchain/14.3.rel1/aarch64-none-elf/bin"
-        - "/Users/spider/.cache/lm-studio/bin"
-  -
-    kind: "find-v1"
-    backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeFindBinUtils.cmake:238 (find_program)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCCompiler.cmake:200 (include)"
-      - "CMakeLists.txt:6 (project)"
-    mode: "program"
-    variable: "CMAKE_LINKER"
-    description: "Path to a program."
-    settings:
-      SearchFramework: "FIRST"
-      SearchAppBundle: "FIRST"
-      CMAKE_FIND_USE_CMAKE_PATH: false
-      CMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH: false
-      CMAKE_FIND_USE_SYSTEM_ENVIRONMENT_PATH: true
-      CMAKE_FIND_USE_CMAKE_SYSTEM_PATH: true
-      CMAKE_FIND_USE_INSTALL_PREFIX: true
-    names:
-      - "ld.lld"
-      - "ld"
-    candidate_directories:
-      - "/opt/homebrew/opt/llvm/bin/"
-      - "/Users/spider/.local/bin/"
-      - "/opt/homebrew/bin/"
-      - "/opt/homebrew/sbin/"
-      - "/usr/local/bin/"
-      - "/System/Cryptexes/App/usr/bin/"
-      - "/usr/bin/"
-      - "/bin/"
-      - "/usr/sbin/"
-      - "/sbin/"
-      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/"
-      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/"
-      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/"
-      - "/Library/Apple/usr/bin/"
-      - "/Users/spider/.cache/lm-studio/bin/"
-      - "/Applications/ArmGNUToolchain/14.3.rel1/aarch64-none-elf/bin/"
-      - "/opt/homebrew/opt/fzf/bin/"
-    searched_directories:
-      - "/opt/homebrew/opt/llvm/bin/ld.lld"
-      - "/Users/spider/.local/bin/ld.lld"
-      - "/opt/homebrew/bin/ld.lld"
-      - "/opt/homebrew/sbin/ld.lld"
-      - "/usr/local/bin/ld.lld"
-      - "/System/Cryptexes/App/usr/bin/ld.lld"
-      - "/usr/bin/ld.lld"
-      - "/bin/ld.lld"
-      - "/usr/sbin/ld.lld"
-      - "/sbin/ld.lld"
-      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin/ld.lld"
-      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin/ld.lld"
-      - "/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin/ld.lld"
-      - "/Library/Apple/usr/bin/ld.lld"
-      - "/Users/spider/.cache/lm-studio/bin/ld.lld"
-      - "/Applications/ArmGNUToolchain/14.3.rel1/aarch64-none-elf/bin/ld.lld"
-      - "/opt/homebrew/opt/fzf/bin/ld.lld"
-      - "/opt/homebrew/opt/llvm/bin/ld"
-      - "/Users/spider/.local/bin/ld"
-      - "/opt/homebrew/bin/ld"
-      - "/opt/homebrew/sbin/ld"
-      - "/usr/local/bin/ld"
-      - "/System/Cryptexes/App/usr/bin/ld"
-    found: "/usr/bin/ld"
-    search_context:
-      ENV{PATH}:
-        - "/opt/homebrew/opt/llvm/bin"
-        - "/Users/spider/.local/bin"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -724,6 +662,8 @@ events:
     candidate_directories:
       - "/opt/homebrew/opt/llvm/bin/"
       - "/Users/spider/.local/bin/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -744,6 +684,8 @@ events:
       ENV{PATH}:
         - "/opt/homebrew/opt/llvm/bin"
         - "/Users/spider/.local/bin"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -787,6 +729,8 @@ events:
     candidate_directories:
       - "/opt/homebrew/opt/llvm/bin/"
       - "/Users/spider/.local/bin/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -807,6 +751,8 @@ events:
       ENV{PATH}:
         - "/opt/homebrew/opt/llvm/bin"
         - "/Users/spider/.local/bin"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -850,6 +796,8 @@ events:
     candidate_directories:
       - "/opt/homebrew/opt/llvm/bin/"
       - "/Users/spider/.local/bin/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -870,6 +818,8 @@ events:
       ENV{PATH}:
         - "/opt/homebrew/opt/llvm/bin"
         - "/Users/spider/.local/bin"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -913,6 +863,8 @@ events:
     candidate_directories:
       - "/opt/homebrew/opt/llvm/bin/"
       - "/Users/spider/.local/bin/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -933,6 +885,8 @@ events:
       ENV{PATH}:
         - "/opt/homebrew/opt/llvm/bin"
         - "/Users/spider/.local/bin"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -976,6 +930,8 @@ events:
     candidate_directories:
       - "/opt/homebrew/opt/llvm/bin/"
       - "/Users/spider/.local/bin/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -996,6 +952,8 @@ events:
       ENV{PATH}:
         - "/opt/homebrew/opt/llvm/bin"
         - "/Users/spider/.local/bin"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -1039,6 +997,8 @@ events:
     candidate_directories:
       - "/opt/homebrew/opt/llvm/bin/"
       - "/Users/spider/.local/bin/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -1059,6 +1019,8 @@ events:
       ENV{PATH}:
         - "/opt/homebrew/opt/llvm/bin"
         - "/Users/spider/.local/bin"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -1101,6 +1063,8 @@ events:
     candidate_directories:
       - "/opt/homebrew/opt/llvm/bin/"
       - "/Users/spider/.local/bin/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -1119,6 +1083,8 @@ events:
     searched_directories:
       - "/opt/homebrew/opt/llvm/bin/tapi"
       - "/Users/spider/.local/bin/tapi"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/tapi"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/tapi"
       - "/opt/homebrew/bin/tapi"
       - "/opt/homebrew/sbin/tapi"
       - "/usr/local/bin/tapi"
@@ -1139,6 +1105,8 @@ events:
       ENV{PATH}:
         - "/opt/homebrew/opt/llvm/bin"
         - "/Users/spider/.local/bin"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -1182,9 +1150,11 @@ events:
       - "llvm-ar21"
       - "llvm-ar"
     candidate_directories:
-      - "/opt/homebrew/Cellar/llvm/21.1.3_1/bin/"
+      - "/opt/homebrew/Cellar/llvm/21.1.4/bin/"
       - "/opt/homebrew/opt/llvm/bin/"
       - "/Users/spider/.local/bin/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -1201,9 +1171,11 @@ events:
       - "/Applications/ArmGNUToolchain/14.3.rel1/aarch64-none-elf/bin/"
       - "/opt/homebrew/opt/fzf/bin/"
     searched_directories:
-      - "/opt/homebrew/Cellar/llvm/21.1.3_1/bin/llvm-ar-21.1"
+      - "/opt/homebrew/Cellar/llvm/21.1.4/bin/llvm-ar-21.1"
       - "/opt/homebrew/opt/llvm/bin/llvm-ar-21.1"
       - "/Users/spider/.local/bin/llvm-ar-21.1"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/llvm-ar-21.1"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/llvm-ar-21.1"
       - "/opt/homebrew/bin/llvm-ar-21.1"
       - "/opt/homebrew/sbin/llvm-ar-21.1"
       - "/usr/local/bin/llvm-ar-21.1"
@@ -1219,9 +1191,11 @@ events:
       - "/Users/spider/.cache/lm-studio/bin/llvm-ar-21.1"
       - "/Applications/ArmGNUToolchain/14.3.rel1/aarch64-none-elf/bin/llvm-ar-21.1"
       - "/opt/homebrew/opt/fzf/bin/llvm-ar-21.1"
-      - "/opt/homebrew/Cellar/llvm/21.1.3_1/bin/llvm-ar-21"
+      - "/opt/homebrew/Cellar/llvm/21.1.4/bin/llvm-ar-21"
       - "/opt/homebrew/opt/llvm/bin/llvm-ar-21"
       - "/Users/spider/.local/bin/llvm-ar-21"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/llvm-ar-21"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/llvm-ar-21"
       - "/opt/homebrew/bin/llvm-ar-21"
       - "/opt/homebrew/sbin/llvm-ar-21"
       - "/usr/local/bin/llvm-ar-21"
@@ -1237,9 +1211,11 @@ events:
       - "/Users/spider/.cache/lm-studio/bin/llvm-ar-21"
       - "/Applications/ArmGNUToolchain/14.3.rel1/aarch64-none-elf/bin/llvm-ar-21"
       - "/opt/homebrew/opt/fzf/bin/llvm-ar-21"
-      - "/opt/homebrew/Cellar/llvm/21.1.3_1/bin/llvm-ar21"
+      - "/opt/homebrew/Cellar/llvm/21.1.4/bin/llvm-ar21"
       - "/opt/homebrew/opt/llvm/bin/llvm-ar21"
       - "/Users/spider/.local/bin/llvm-ar21"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/llvm-ar21"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/llvm-ar21"
       - "/opt/homebrew/bin/llvm-ar21"
       - "/opt/homebrew/sbin/llvm-ar21"
       - "/usr/local/bin/llvm-ar21"
@@ -1255,11 +1231,13 @@ events:
       - "/Users/spider/.cache/lm-studio/bin/llvm-ar21"
       - "/Applications/ArmGNUToolchain/14.3.rel1/aarch64-none-elf/bin/llvm-ar21"
       - "/opt/homebrew/opt/fzf/bin/llvm-ar21"
-    found: "/opt/homebrew/Cellar/llvm/21.1.3_1/bin/llvm-ar"
+    found: "/opt/homebrew/Cellar/llvm/21.1.4/bin/llvm-ar"
     search_context:
       ENV{PATH}:
         - "/opt/homebrew/opt/llvm/bin"
         - "/Users/spider/.local/bin"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -1303,9 +1281,11 @@ events:
       - "llvm-ranlib21"
       - "llvm-ranlib"
     candidate_directories:
-      - "/opt/homebrew/Cellar/llvm/21.1.3_1/bin/"
+      - "/opt/homebrew/Cellar/llvm/21.1.4/bin/"
       - "/opt/homebrew/opt/llvm/bin/"
       - "/Users/spider/.local/bin/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -1322,9 +1302,11 @@ events:
       - "/Applications/ArmGNUToolchain/14.3.rel1/aarch64-none-elf/bin/"
       - "/opt/homebrew/opt/fzf/bin/"
     searched_directories:
-      - "/opt/homebrew/Cellar/llvm/21.1.3_1/bin/llvm-ranlib-21.1"
+      - "/opt/homebrew/Cellar/llvm/21.1.4/bin/llvm-ranlib-21.1"
       - "/opt/homebrew/opt/llvm/bin/llvm-ranlib-21.1"
       - "/Users/spider/.local/bin/llvm-ranlib-21.1"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/llvm-ranlib-21.1"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/llvm-ranlib-21.1"
       - "/opt/homebrew/bin/llvm-ranlib-21.1"
       - "/opt/homebrew/sbin/llvm-ranlib-21.1"
       - "/usr/local/bin/llvm-ranlib-21.1"
@@ -1340,9 +1322,11 @@ events:
       - "/Users/spider/.cache/lm-studio/bin/llvm-ranlib-21.1"
       - "/Applications/ArmGNUToolchain/14.3.rel1/aarch64-none-elf/bin/llvm-ranlib-21.1"
       - "/opt/homebrew/opt/fzf/bin/llvm-ranlib-21.1"
-      - "/opt/homebrew/Cellar/llvm/21.1.3_1/bin/llvm-ranlib-21"
+      - "/opt/homebrew/Cellar/llvm/21.1.4/bin/llvm-ranlib-21"
       - "/opt/homebrew/opt/llvm/bin/llvm-ranlib-21"
       - "/Users/spider/.local/bin/llvm-ranlib-21"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/llvm-ranlib-21"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/llvm-ranlib-21"
       - "/opt/homebrew/bin/llvm-ranlib-21"
       - "/opt/homebrew/sbin/llvm-ranlib-21"
       - "/usr/local/bin/llvm-ranlib-21"
@@ -1358,9 +1342,11 @@ events:
       - "/Users/spider/.cache/lm-studio/bin/llvm-ranlib-21"
       - "/Applications/ArmGNUToolchain/14.3.rel1/aarch64-none-elf/bin/llvm-ranlib-21"
       - "/opt/homebrew/opt/fzf/bin/llvm-ranlib-21"
-      - "/opt/homebrew/Cellar/llvm/21.1.3_1/bin/llvm-ranlib21"
+      - "/opt/homebrew/Cellar/llvm/21.1.4/bin/llvm-ranlib21"
       - "/opt/homebrew/opt/llvm/bin/llvm-ranlib21"
       - "/Users/spider/.local/bin/llvm-ranlib21"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/llvm-ranlib21"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/llvm-ranlib21"
       - "/opt/homebrew/bin/llvm-ranlib21"
       - "/opt/homebrew/sbin/llvm-ranlib21"
       - "/usr/local/bin/llvm-ranlib21"
@@ -1376,11 +1362,13 @@ events:
       - "/Users/spider/.cache/lm-studio/bin/llvm-ranlib21"
       - "/Applications/ArmGNUToolchain/14.3.rel1/aarch64-none-elf/bin/llvm-ranlib21"
       - "/opt/homebrew/opt/fzf/bin/llvm-ranlib21"
-    found: "/opt/homebrew/Cellar/llvm/21.1.3_1/bin/llvm-ranlib"
+    found: "/opt/homebrew/Cellar/llvm/21.1.4/bin/llvm-ranlib"
     search_context:
       ENV{PATH}:
         - "/opt/homebrew/opt/llvm/bin"
         - "/Users/spider/.local/bin"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -1424,9 +1412,11 @@ events:
       - "clang-scan-deps21"
       - "clang-scan-deps"
     candidate_directories:
-      - "/opt/homebrew/Cellar/llvm/21.1.3_1/bin/"
+      - "/opt/homebrew/Cellar/llvm/21.1.4/bin/"
       - "/opt/homebrew/opt/llvm/bin/"
       - "/Users/spider/.local/bin/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -1443,9 +1433,11 @@ events:
       - "/Applications/ArmGNUToolchain/14.3.rel1/aarch64-none-elf/bin/"
       - "/opt/homebrew/opt/fzf/bin/"
     searched_directories:
-      - "/opt/homebrew/Cellar/llvm/21.1.3_1/bin/clang-scan-deps-21.1"
+      - "/opt/homebrew/Cellar/llvm/21.1.4/bin/clang-scan-deps-21.1"
       - "/opt/homebrew/opt/llvm/bin/clang-scan-deps-21.1"
       - "/Users/spider/.local/bin/clang-scan-deps-21.1"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/clang-scan-deps-21.1"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/clang-scan-deps-21.1"
       - "/opt/homebrew/bin/clang-scan-deps-21.1"
       - "/opt/homebrew/sbin/clang-scan-deps-21.1"
       - "/usr/local/bin/clang-scan-deps-21.1"
@@ -1461,9 +1453,11 @@ events:
       - "/Users/spider/.cache/lm-studio/bin/clang-scan-deps-21.1"
       - "/Applications/ArmGNUToolchain/14.3.rel1/aarch64-none-elf/bin/clang-scan-deps-21.1"
       - "/opt/homebrew/opt/fzf/bin/clang-scan-deps-21.1"
-      - "/opt/homebrew/Cellar/llvm/21.1.3_1/bin/clang-scan-deps-21"
+      - "/opt/homebrew/Cellar/llvm/21.1.4/bin/clang-scan-deps-21"
       - "/opt/homebrew/opt/llvm/bin/clang-scan-deps-21"
       - "/Users/spider/.local/bin/clang-scan-deps-21"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/clang-scan-deps-21"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/clang-scan-deps-21"
       - "/opt/homebrew/bin/clang-scan-deps-21"
       - "/opt/homebrew/sbin/clang-scan-deps-21"
       - "/usr/local/bin/clang-scan-deps-21"
@@ -1479,9 +1473,11 @@ events:
       - "/Users/spider/.cache/lm-studio/bin/clang-scan-deps-21"
       - "/Applications/ArmGNUToolchain/14.3.rel1/aarch64-none-elf/bin/clang-scan-deps-21"
       - "/opt/homebrew/opt/fzf/bin/clang-scan-deps-21"
-      - "/opt/homebrew/Cellar/llvm/21.1.3_1/bin/clang-scan-deps21"
+      - "/opt/homebrew/Cellar/llvm/21.1.4/bin/clang-scan-deps21"
       - "/opt/homebrew/opt/llvm/bin/clang-scan-deps21"
       - "/Users/spider/.local/bin/clang-scan-deps21"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/clang-scan-deps21"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/clang-scan-deps21"
       - "/opt/homebrew/bin/clang-scan-deps21"
       - "/opt/homebrew/sbin/clang-scan-deps21"
       - "/usr/local/bin/clang-scan-deps21"
@@ -1497,11 +1493,13 @@ events:
       - "/Users/spider/.cache/lm-studio/bin/clang-scan-deps21"
       - "/Applications/ArmGNUToolchain/14.3.rel1/aarch64-none-elf/bin/clang-scan-deps21"
       - "/opt/homebrew/opt/fzf/bin/clang-scan-deps21"
-    found: "/opt/homebrew/Cellar/llvm/21.1.3_1/bin/clang-scan-deps"
+    found: "/opt/homebrew/Cellar/llvm/21.1.4/bin/clang-scan-deps"
     search_context:
       ENV{PATH}:
         - "/opt/homebrew/opt/llvm/bin"
         - "/Users/spider/.local/bin"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -1544,6 +1542,8 @@ events:
     candidate_directories:
       - "/opt/homebrew/opt/llvm/bin/"
       - "/Users/spider/.local/bin/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -1564,6 +1564,8 @@ events:
       ENV{PATH}:
         - "/opt/homebrew/opt/llvm/bin"
         - "/Users/spider/.local/bin"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -1592,10 +1594,10 @@ events:
       - "CMakeLists.txt:6 (project)"
     message: |
       Checking whether the ASM compiler is GNU using "--version" did not match "(GNU assembler)|(GCC)|(Free Software Foundation)":
-      Homebrew clang version 21.1.3
+      Homebrew clang version 21.1.4
       Target: arm64-apple-darwin25.0.0
       Thread model: posix
-      InstalledDir: /opt/homebrew/Cellar/llvm/21.1.3_1/bin
+      InstalledDir: /opt/homebrew/Cellar/llvm/21.1.4/bin
       Configuration file: /opt/homebrew/etc/clang/arm64-apple-darwin25.cfg
   -
     kind: "message-v1"
@@ -1605,10 +1607,10 @@ events:
       - "CMakeLists.txt:6 (project)"
     message: |
       Checking whether the ASM compiler is AppleClang using "--version" did not match "(Apple (clang|LLVM) version)":
-      Homebrew clang version 21.1.3
+      Homebrew clang version 21.1.4
       Target: arm64-apple-darwin25.0.0
       Thread model: posix
-      InstalledDir: /opt/homebrew/Cellar/llvm/21.1.3_1/bin
+      InstalledDir: /opt/homebrew/Cellar/llvm/21.1.4/bin
       Configuration file: /opt/homebrew/etc/clang/arm64-apple-darwin25.cfg
   -
     kind: "message-v1"
@@ -1618,10 +1620,10 @@ events:
       - "CMakeLists.txt:6 (project)"
     message: |
       Checking whether the ASM compiler is Clang using "--version" matched "(clang version)":
-      Homebrew clang version 21.1.3
+      Homebrew clang version 21.1.4
       Target: arm64-apple-darwin25.0.0
       Thread model: posix
-      InstalledDir: /opt/homebrew/Cellar/llvm/21.1.3_1/bin
+      InstalledDir: /opt/homebrew/Cellar/llvm/21.1.4/bin
       Configuration file: /opt/homebrew/etc/clang/arm64-apple-darwin25.cfg
   -
     kind: "find-v1"
@@ -1646,9 +1648,11 @@ events:
       - "llvm-ar"
       - "llvm-ar"
     candidate_directories:
-      - "/opt/homebrew/Cellar/llvm/21.1.3_1/bin/"
+      - "/opt/homebrew/Cellar/llvm/21.1.4/bin/"
       - "/opt/homebrew/opt/llvm/bin/"
       - "/Users/spider/.local/bin/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -1665,9 +1669,11 @@ events:
       - "/Applications/ArmGNUToolchain/14.3.rel1/aarch64-none-elf/bin/"
       - "/opt/homebrew/opt/fzf/bin/"
     searched_directories:
-      - "/opt/homebrew/Cellar/llvm/21.1.3_1/bin/llvm-ar-"
+      - "/opt/homebrew/Cellar/llvm/21.1.4/bin/llvm-ar-"
       - "/opt/homebrew/opt/llvm/bin/llvm-ar-"
       - "/Users/spider/.local/bin/llvm-ar-"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/llvm-ar-"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/llvm-ar-"
       - "/opt/homebrew/bin/llvm-ar-"
       - "/opt/homebrew/sbin/llvm-ar-"
       - "/usr/local/bin/llvm-ar-"
@@ -1683,9 +1689,11 @@ events:
       - "/Users/spider/.cache/lm-studio/bin/llvm-ar-"
       - "/Applications/ArmGNUToolchain/14.3.rel1/aarch64-none-elf/bin/llvm-ar-"
       - "/opt/homebrew/opt/fzf/bin/llvm-ar-"
-      - "/opt/homebrew/Cellar/llvm/21.1.3_1/bin/llvm-ar-"
+      - "/opt/homebrew/Cellar/llvm/21.1.4/bin/llvm-ar-"
       - "/opt/homebrew/opt/llvm/bin/llvm-ar-"
       - "/Users/spider/.local/bin/llvm-ar-"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/llvm-ar-"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/llvm-ar-"
       - "/opt/homebrew/bin/llvm-ar-"
       - "/opt/homebrew/sbin/llvm-ar-"
       - "/usr/local/bin/llvm-ar-"
@@ -1701,11 +1709,13 @@ events:
       - "/Users/spider/.cache/lm-studio/bin/llvm-ar-"
       - "/Applications/ArmGNUToolchain/14.3.rel1/aarch64-none-elf/bin/llvm-ar-"
       - "/opt/homebrew/opt/fzf/bin/llvm-ar-"
-    found: "/opt/homebrew/Cellar/llvm/21.1.3_1/bin/llvm-ar"
+    found: "/opt/homebrew/Cellar/llvm/21.1.4/bin/llvm-ar"
     search_context:
       ENV{PATH}:
         - "/opt/homebrew/opt/llvm/bin"
         - "/Users/spider/.local/bin"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -1749,9 +1759,11 @@ events:
       - "llvm-ranlib"
       - "llvm-ranlib"
     candidate_directories:
-      - "/opt/homebrew/Cellar/llvm/21.1.3_1/bin/"
+      - "/opt/homebrew/Cellar/llvm/21.1.4/bin/"
       - "/opt/homebrew/opt/llvm/bin/"
       - "/Users/spider/.local/bin/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -1768,9 +1780,11 @@ events:
       - "/Applications/ArmGNUToolchain/14.3.rel1/aarch64-none-elf/bin/"
       - "/opt/homebrew/opt/fzf/bin/"
     searched_directories:
-      - "/opt/homebrew/Cellar/llvm/21.1.3_1/bin/llvm-ranlib-"
+      - "/opt/homebrew/Cellar/llvm/21.1.4/bin/llvm-ranlib-"
       - "/opt/homebrew/opt/llvm/bin/llvm-ranlib-"
       - "/Users/spider/.local/bin/llvm-ranlib-"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/llvm-ranlib-"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/llvm-ranlib-"
       - "/opt/homebrew/bin/llvm-ranlib-"
       - "/opt/homebrew/sbin/llvm-ranlib-"
       - "/usr/local/bin/llvm-ranlib-"
@@ -1786,9 +1800,11 @@ events:
       - "/Users/spider/.cache/lm-studio/bin/llvm-ranlib-"
       - "/Applications/ArmGNUToolchain/14.3.rel1/aarch64-none-elf/bin/llvm-ranlib-"
       - "/opt/homebrew/opt/fzf/bin/llvm-ranlib-"
-      - "/opt/homebrew/Cellar/llvm/21.1.3_1/bin/llvm-ranlib-"
+      - "/opt/homebrew/Cellar/llvm/21.1.4/bin/llvm-ranlib-"
       - "/opt/homebrew/opt/llvm/bin/llvm-ranlib-"
       - "/Users/spider/.local/bin/llvm-ranlib-"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/llvm-ranlib-"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/llvm-ranlib-"
       - "/opt/homebrew/bin/llvm-ranlib-"
       - "/opt/homebrew/sbin/llvm-ranlib-"
       - "/usr/local/bin/llvm-ranlib-"
@@ -1804,11 +1820,13 @@ events:
       - "/Users/spider/.cache/lm-studio/bin/llvm-ranlib-"
       - "/Applications/ArmGNUToolchain/14.3.rel1/aarch64-none-elf/bin/llvm-ranlib-"
       - "/opt/homebrew/opt/fzf/bin/llvm-ranlib-"
-    found: "/opt/homebrew/Cellar/llvm/21.1.3_1/bin/llvm-ranlib"
+    found: "/opt/homebrew/Cellar/llvm/21.1.4/bin/llvm-ranlib"
     search_context:
       ENV{PATH}:
         - "/opt/homebrew/opt/llvm/bin"
         - "/Users/spider/.local/bin"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -1852,9 +1870,11 @@ events:
       - "clang-scan-deps"
       - "clang-scan-deps"
     candidate_directories:
-      - "/opt/homebrew/Cellar/llvm/21.1.3_1/bin/"
+      - "/opt/homebrew/Cellar/llvm/21.1.4/bin/"
       - "/opt/homebrew/opt/llvm/bin/"
       - "/Users/spider/.local/bin/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/"
       - "/opt/homebrew/bin/"
       - "/opt/homebrew/sbin/"
       - "/usr/local/bin/"
@@ -1871,9 +1891,11 @@ events:
       - "/Applications/ArmGNUToolchain/14.3.rel1/aarch64-none-elf/bin/"
       - "/opt/homebrew/opt/fzf/bin/"
     searched_directories:
-      - "/opt/homebrew/Cellar/llvm/21.1.3_1/bin/clang-scan-deps-"
+      - "/opt/homebrew/Cellar/llvm/21.1.4/bin/clang-scan-deps-"
       - "/opt/homebrew/opt/llvm/bin/clang-scan-deps-"
       - "/Users/spider/.local/bin/clang-scan-deps-"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/clang-scan-deps-"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/clang-scan-deps-"
       - "/opt/homebrew/bin/clang-scan-deps-"
       - "/opt/homebrew/sbin/clang-scan-deps-"
       - "/usr/local/bin/clang-scan-deps-"
@@ -1889,9 +1911,11 @@ events:
       - "/Users/spider/.cache/lm-studio/bin/clang-scan-deps-"
       - "/Applications/ArmGNUToolchain/14.3.rel1/aarch64-none-elf/bin/clang-scan-deps-"
       - "/opt/homebrew/opt/fzf/bin/clang-scan-deps-"
-      - "/opt/homebrew/Cellar/llvm/21.1.3_1/bin/clang-scan-deps-"
+      - "/opt/homebrew/Cellar/llvm/21.1.4/bin/clang-scan-deps-"
       - "/opt/homebrew/opt/llvm/bin/clang-scan-deps-"
       - "/Users/spider/.local/bin/clang-scan-deps-"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd/clang-scan-deps-"
+      - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin/clang-scan-deps-"
       - "/opt/homebrew/bin/clang-scan-deps-"
       - "/opt/homebrew/sbin/clang-scan-deps-"
       - "/usr/local/bin/clang-scan-deps-"
@@ -1907,11 +1931,13 @@ events:
       - "/Users/spider/.cache/lm-studio/bin/clang-scan-deps-"
       - "/Applications/ArmGNUToolchain/14.3.rel1/aarch64-none-elf/bin/clang-scan-deps-"
       - "/opt/homebrew/opt/fzf/bin/clang-scan-deps-"
-    found: "/opt/homebrew/Cellar/llvm/21.1.3_1/bin/clang-scan-deps"
+    found: "/opt/homebrew/Cellar/llvm/21.1.4/bin/clang-scan-deps"
     search_context:
       ENV{PATH}:
         - "/opt/homebrew/opt/llvm/bin"
         - "/Users/spider/.local/bin"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/pyocd"
+        - "/Users/spider/.cursor/extensions/arm.vscode-cmsis-debugger-1.0.0-darwin-arm64/tools/gdb/bin"
         - "/opt/homebrew/bin"
         - "/opt/homebrew/sbin"
         - "/usr/local/bin"
@@ -1941,8 +1967,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "/Users/spider/dev/kora/koraos/build/CMakeFiles/CMakeScratch/TryCompile-bUypSr"
-      binary: "/Users/spider/dev/kora/koraos/build/CMakeFiles/CMakeScratch/TryCompile-bUypSr"
+      source: "/Users/spider/dev/kora/koraos/build/CMakeFiles/CMakeScratch/TryCompile-mtfDOZ"
+      binary: "/Users/spider/dev/kora/koraos/build/CMakeFiles/CMakeScratch/TryCompile-mtfDOZ"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -1951,169 +1977,38 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: '/Users/spider/dev/kora/koraos/build/CMakeFiles/CMakeScratch/TryCompile-bUypSr'
+        Change Dir: '/Users/spider/dev/kora/koraos/build/CMakeFiles/CMakeScratch/TryCompile-mtfDOZ'
         
-        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_2deab/fast
-        /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_2deab.dir/build.make CMakeFiles/cmTC_2deab.dir/build
-        Building C object CMakeFiles/cmTC_2deab.dir/CMakeCCompilerABI.c.obj
-        /opt/homebrew/opt/llvm/bin/clang   -v -MD -MT CMakeFiles/cmTC_2deab.dir/CMakeCCompilerABI.c.obj -MF CMakeFiles/cmTC_2deab.dir/CMakeCCompilerABI.c.obj.d -o CMakeFiles/cmTC_2deab.dir/CMakeCCompilerABI.c.obj -c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c
-        Homebrew clang version 21.1.3
+        Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_6d2d6/fast
+        /Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_6d2d6.dir/build.make CMakeFiles/cmTC_6d2d6.dir/build
+        Building C object CMakeFiles/cmTC_6d2d6.dir/CMakeCCompilerABI.c.obj
+        /opt/homebrew/opt/llvm/bin/clang   -v -MD -MT CMakeFiles/cmTC_6d2d6.dir/CMakeCCompilerABI.c.obj -MF CMakeFiles/cmTC_6d2d6.dir/CMakeCCompilerABI.c.obj.d -o CMakeFiles/cmTC_6d2d6.dir/CMakeCCompilerABI.c.obj -c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c
+        Homebrew clang version 21.1.4
         Target: arm64-apple-darwin25.0.0
         Thread model: posix
-        InstalledDir: /opt/homebrew/Cellar/llvm/21.1.3_1/bin
+        InstalledDir: /opt/homebrew/Cellar/llvm/21.1.4/bin
         Configuration file: /opt/homebrew/etc/clang/arm64-apple-darwin25.cfg
         System configuration file directory: /opt/homebrew/etc/clang
         User configuration file directory: /Users/spider/.config/clang
          (in-process)
-         "/opt/homebrew/Cellar/llvm/21.1.3_1/bin/clang-21" -cc1 -triple arm64-apple-macosx26.0.0 -Wundef-prefix=TARGET_OS_ -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -ffp-contract=on -fno-rounding-math -funwind-tables=1 -target-sdk-version=26.0 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -fdefine-target-os-macros -fno-modulemap-allow-subdirectory-search -enable-tlsdesc -target-cpu apple-m1 -target-feature +v8.4a -target-feature +aes -target-feature +altnzcv -target-feature +ccdp -target-feature +ccpp -target-feature +complxnum -target-feature +crc -target-feature +dotprod -target-feature +flagm -target-feature +fp-armv8 -target-feature +fp16fml -target-feature +fptoint -target-feature +fullfp16 -target-feature +jsconv -target-feature +lse -target-feature +neon -target-feature +pauth -target-feature +perfmon -target-feature +predres -target-feature +ras -target-feature +rcpc -target-feature +rdm -target-feature +sb -target-feature +sha2 -target-feature +sha3 -target-feature +specrestrict -target-feature +ssbs -target-abi darwinpcs -debugger-tuning=lldb -fdebug-compilation-dir=/Users/spider/dev/kora/koraos/build/CMakeFiles/CMakeScratch/TryCompile-bUypSr -target-linker-version 1221.4 -v -fcoverage-compilation-dir=/Users/spider/dev/kora/koraos/build/CMakeFiles/CMakeScratch/TryCompile-bUypSr -resource-dir /opt/homebrew/Cellar/llvm/21.1.3_1/lib/clang/21 -dependency-file CMakeFiles/cmTC_2deab.dir/CMakeCCompilerABI.c.obj.d -MT CMakeFiles/cmTC_2deab.dir/CMakeCCompilerABI.c.obj -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/local/include -internal-isystem /opt/homebrew/Cellar/llvm/21.1.3_1/lib/clang/21/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/System/Library/Frameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/System/Library/SubFrameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/Library/Frameworks -ferror-limit 19 -stack-protector 1 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fmax-type-align=16 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_2deab.dir/CMakeCCompilerABI.c.obj -x c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c
-        clang -cc1 version 21.1.3 based upon LLVM 21.1.3 default target arm64-apple-darwin25.0.0
+         "/opt/homebrew/Cellar/llvm/21.1.4/bin/clang-21" -cc1 -triple arm64-apple-macosx26.0.0 -Wundef-prefix=TARGET_OS_ -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -ffp-contract=on -fno-rounding-math -funwind-tables=1 -target-sdk-version=26.0 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -fdefine-target-os-macros -fno-modulemap-allow-subdirectory-search -enable-tlsdesc -target-cpu apple-m1 -target-feature +v8.4a -target-feature +aes -target-feature +altnzcv -target-feature +ccdp -target-feature +ccpp -target-feature +complxnum -target-feature +crc -target-feature +dotprod -target-feature +flagm -target-feature +fp-armv8 -target-feature +fp16fml -target-feature +fptoint -target-feature +fullfp16 -target-feature +jsconv -target-feature +lse -target-feature +neon -target-feature +pauth -target-feature +perfmon -target-feature +predres -target-feature +ras -target-feature +rcpc -target-feature +rdm -target-feature +sb -target-feature +sha2 -target-feature +sha3 -target-feature +specrestrict -target-feature +ssbs -target-abi darwinpcs -debugger-tuning=lldb -fdebug-compilation-dir=/Users/spider/dev/kora/koraos/build/CMakeFiles/CMakeScratch/TryCompile-mtfDOZ -target-linker-version 1221.4 -v -fcoverage-compilation-dir=/Users/spider/dev/kora/koraos/build/CMakeFiles/CMakeScratch/TryCompile-mtfDOZ -resource-dir /opt/homebrew/Cellar/llvm/21.1.4/lib/clang/21 -dependency-file CMakeFiles/cmTC_6d2d6.dir/CMakeCCompilerABI.c.obj.d -MT CMakeFiles/cmTC_6d2d6.dir/CMakeCCompilerABI.c.obj -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/local/include -internal-isystem /opt/homebrew/Cellar/llvm/21.1.4/lib/clang/21/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/System/Library/Frameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/System/Library/SubFrameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/Library/Frameworks -ferror-limit 19 -stack-protector 1 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fmax-type-align=16 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_6d2d6.dir/CMakeCCompilerABI.c.obj -x c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c
+        clang -cc1 version 21.1.4 based upon LLVM 21.1.4 default target arm64-apple-darwin25.0.0
         ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/local/include"
         ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/Library/Frameworks"
         #include "..." search starts here:
         #include <...> search starts here:
-         /opt/homebrew/Cellar/llvm/21.1.3_1/lib/clang/21/include
+         /opt/homebrew/Cellar/llvm/21.1.4/lib/clang/21/include
          /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include
          /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/System/Library/Frameworks (framework directory)
          /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/System/Library/SubFrameworks (framework directory)
         End of search list.
-        Linking C executable cmTC_2deab
-        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2deab.dir/link.txt --verbose=1
-        Homebrew clang version 21.1.3
-        Target: arm64-apple-darwin25.0.0
-        Thread model: posix
-        InstalledDir: /opt/homebrew/Cellar/llvm/21.1.3_1/bin
-        Configuration file: /opt/homebrew/etc/clang/arm64-apple-darwin25.cfg
-        System configuration file directory: /opt/homebrew/etc/clang
-        User configuration file directory: /Users/spider/.config/clang
-         "/usr/bin/ld" -demangle -lto_library /opt/homebrew/Cellar/llvm/21.1.3_1/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 26.0.0 26.0 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_2deab CMakeFiles/cmTC_2deab.dir/CMakeCCompilerABI.c.obj -lSystem /opt/homebrew/Cellar/llvm/21.1.3_1/lib/clang/21/lib/darwin/libclang_rt.osx.a
-        clang  -v CMakeFiles/cmTC_2deab.dir/CMakeCCompilerABI.c.obj -o cmTC_2deab
+        Linking C executable cmTC_6d2d6
+        /opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6d2d6.dir/link.txt --verbose=1
+        Homebrew LLD 21.1.4 (compatible with GNU linkers)
+        ld.lld: error: CMakeFiles/cmTC_6d2d6.dir/CMakeCCompilerABI.c.obj: unknown file type
+        /opt/homebrew/bin/ld.lld  -v CMakeFiles/cmTC_6d2d6.dir/CMakeCCompilerABI.c.obj -o cmTC_6d2d6
+        make[1]: *** [cmTC_6d2d6] Error 1
+        make: *** [cmTC_6d2d6/fast] Error 2
         
-      exitCode: 0
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:217 (message)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:6 (project)"
-    message: |
-      Parsed C implicit include dir info: rv=done
-        found start of include info
-        found start of implicit include info
-          add: [/opt/homebrew/Cellar/llvm/21.1.3_1/lib/clang/21/include]
-          add: [/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include]
-        end of search list found
-        collapse include dir [/opt/homebrew/Cellar/llvm/21.1.3_1/lib/clang/21/include] ==> [/opt/homebrew/Cellar/llvm/21.1.3_1/lib/clang/21/include]
-        collapse include dir [/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include] ==> [/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include]
-        implicit include dirs: [/opt/homebrew/Cellar/llvm/21.1.3_1/lib/clang/21/include;/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include]
-      
-      
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:253 (message)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:6 (project)"
-    message: |
-      Parsed C implicit link information:
-        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
-        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: '/Users/spider/dev/kora/koraos/build/CMakeFiles/CMakeScratch/TryCompile-bUypSr']
-        ignore line: []
-        ignore line: [Run Build Command(s): /opt/homebrew/bin/cmake -E env VERBOSE=1 /usr/bin/make -f Makefile cmTC_2deab/fast]
-        ignore line: [/Applications/Xcode.app/Contents/Developer/usr/bin/make  -f CMakeFiles/cmTC_2deab.dir/build.make CMakeFiles/cmTC_2deab.dir/build]
-        ignore line: [Building C object CMakeFiles/cmTC_2deab.dir/CMakeCCompilerABI.c.obj]
-        ignore line: [/opt/homebrew/opt/llvm/bin/clang   -v -MD -MT CMakeFiles/cmTC_2deab.dir/CMakeCCompilerABI.c.obj -MF CMakeFiles/cmTC_2deab.dir/CMakeCCompilerABI.c.obj.d -o CMakeFiles/cmTC_2deab.dir/CMakeCCompilerABI.c.obj -c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c]
-        ignore line: [Homebrew clang version 21.1.3]
-        ignore line: [Target: arm64-apple-darwin25.0.0]
-        ignore line: [Thread model: posix]
-        ignore line: [InstalledDir: /opt/homebrew/Cellar/llvm/21.1.3_1/bin]
-        ignore line: [Configuration file: /opt/homebrew/etc/clang/arm64-apple-darwin25.cfg]
-        ignore line: [System configuration file directory: /opt/homebrew/etc/clang]
-        ignore line: [User configuration file directory: /Users/spider/.config/clang]
-        ignore line: [ (in-process)]
-        ignore line: [ "/opt/homebrew/Cellar/llvm/21.1.3_1/bin/clang-21" -cc1 -triple arm64-apple-macosx26.0.0 -Wundef-prefix=TARGET_OS_ -Werror=undef-prefix -Wdeprecated-objc-isa-usage -Werror=deprecated-objc-isa-usage -emit-obj -disable-free -clear-ast-before-backend -disable-llvm-verifier -discard-value-names -main-file-name CMakeCCompilerABI.c -mrelocation-model pic -pic-level 2 -mframe-pointer=non-leaf -ffp-contract=on -fno-rounding-math -funwind-tables=1 -target-sdk-version=26.0 -fcompatibility-qualified-id-block-type-checking -fvisibility-inlines-hidden-static-local-var -fdefine-target-os-macros -fno-modulemap-allow-subdirectory-search -enable-tlsdesc -target-cpu apple-m1 -target-feature +v8.4a -target-feature +aes -target-feature +altnzcv -target-feature +ccdp -target-feature +ccpp -target-feature +complxnum -target-feature +crc -target-feature +dotprod -target-feature +flagm -target-feature +fp-armv8 -target-feature +fp16fml -target-feature +fptoint -target-feature +fullfp16 -target-feature +jsconv -target-feature +lse -target-feature +neon -target-feature +pauth -target-feature +perfmon -target-feature +predres -target-feature +ras -target-feature +rcpc -target-feature +rdm -target-feature +sb -target-feature +sha2 -target-feature +sha3 -target-feature +specrestrict -target-feature +ssbs -target-abi darwinpcs -debugger-tuning=lldb -fdebug-compilation-dir=/Users/spider/dev/kora/koraos/build/CMakeFiles/CMakeScratch/TryCompile-bUypSr -target-linker-version 1221.4 -v -fcoverage-compilation-dir=/Users/spider/dev/kora/koraos/build/CMakeFiles/CMakeScratch/TryCompile-bUypSr -resource-dir /opt/homebrew/Cellar/llvm/21.1.3_1/lib/clang/21 -dependency-file CMakeFiles/cmTC_2deab.dir/CMakeCCompilerABI.c.obj.d -MT CMakeFiles/cmTC_2deab.dir/CMakeCCompilerABI.c.obj -sys-header-deps -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk -internal-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/local/include -internal-isystem /opt/homebrew/Cellar/llvm/21.1.3_1/lib/clang/21/include -internal-externc-isystem /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/System/Library/Frameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/System/Library/SubFrameworks -internal-iframework /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/Library/Frameworks -ferror-limit 19 -stack-protector 1 -fblocks -fencode-extended-block-signature -fregister-global-dtors-with-atexit -fgnuc-version=4.2.1 -fskip-odr-check-in-gmf -fmax-type-align=16 -D__GCC_HAVE_DWARF2_CFI_ASM=1 -o CMakeFiles/cmTC_2deab.dir/CMakeCCompilerABI.c.obj -x c /opt/homebrew/share/cmake/Modules/CMakeCCompilerABI.c]
-        ignore line: [clang -cc1 version 21.1.3 based upon LLVM 21.1.3 default target arm64-apple-darwin25.0.0]
-        ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/local/include"]
-        ignore line: [ignoring nonexistent directory "/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/Library/Frameworks"]
-        ignore line: [#include "..." search starts here:]
-        ignore line: [#include <...> search starts here:]
-        ignore line: [ /opt/homebrew/Cellar/llvm/21.1.3_1/lib/clang/21/include]
-        ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/usr/include]
-        ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/System/Library/Frameworks (framework directory)]
-        ignore line: [ /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk/System/Library/SubFrameworks (framework directory)]
-        ignore line: [End of search list.]
-        ignore line: [Linking C executable cmTC_2deab]
-        ignore line: [/opt/homebrew/bin/cmake -E cmake_link_script CMakeFiles/cmTC_2deab.dir/link.txt --verbose=1]
-        ignore line: [Homebrew clang version 21.1.3]
-        ignore line: [Target: arm64-apple-darwin25.0.0]
-        ignore line: [Thread model: posix]
-        ignore line: [InstalledDir: /opt/homebrew/Cellar/llvm/21.1.3_1/bin]
-        ignore line: [Configuration file: /opt/homebrew/etc/clang/arm64-apple-darwin25.cfg]
-        ignore line: [System configuration file directory: /opt/homebrew/etc/clang]
-        ignore line: [User configuration file directory: /Users/spider/.config/clang]
-        link line: [ "/usr/bin/ld" -demangle -lto_library /opt/homebrew/Cellar/llvm/21.1.3_1/lib/libLTO.dylib -dynamic -arch arm64 -platform_version macos 26.0.0 26.0 -syslibroot /Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk -mllvm -enable-linkonceodr-outlining -o cmTC_2deab CMakeFiles/cmTC_2deab.dir/CMakeCCompilerABI.c.obj -lSystem /opt/homebrew/Cellar/llvm/21.1.3_1/lib/clang/21/lib/darwin/libclang_rt.osx.a]
-          arg [/usr/bin/ld] ==> ignore
-          arg [-demangle] ==> ignore
-          arg [-lto_library] ==> ignore, skip following value
-          arg [/opt/homebrew/Cellar/llvm/21.1.3_1/lib/libLTO.dylib] ==> skip value of -lto_library
-          arg [-dynamic] ==> ignore
-          arg [-arch] ==> ignore
-          arg [arm64] ==> ignore
-          arg [-platform_version] ==> ignore
-          arg [macos] ==> ignore
-          arg [26.0.0] ==> ignore
-          arg [26.0] ==> ignore
-          arg [-syslibroot] ==> ignore
-          arg [/Library/Developer/CommandLineTools/SDKs/MacOSX26.sdk] ==> ignore
-          arg [-mllvm] ==> ignore
-          arg [-enable-linkonceodr-outlining] ==> ignore
-          arg [-o] ==> ignore
-          arg [cmTC_2deab] ==> ignore
-          arg [CMakeFiles/cmTC_2deab.dir/CMakeCCompilerABI.c.obj] ==> ignore
-          arg [-lSystem] ==> lib [System]
-          arg [/opt/homebrew/Cellar/llvm/21.1.3_1/lib/clang/21/lib/darwin/libclang_rt.osx.a] ==> lib [/opt/homebrew/Cellar/llvm/21.1.3_1/lib/clang/21/lib/darwin/libclang_rt.osx.a]
-        linker tool for 'C': /usr/bin/ld
-        remove lib [System]
-        remove lib [/opt/homebrew/Cellar/llvm/21.1.3_1/lib/clang/21/lib/darwin/libclang_rt.osx.a]
-        implicit libs: []
-        implicit objs: []
-        implicit dirs: []
-        implicit fwks: []
-      
-      
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/opt/homebrew/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:6 (project)"
-    message: |
-      Running the C compiler's linker: "/usr/bin/ld" "-v"
-      @(#)PROGRAM:ld PROJECT:ld-1221.4
-      BUILD 16:29:08 Aug 11 2025
-      configured to support archs: armv6 armv7 armv7s arm64 arm64e arm64_32 i386 x86_64 x86_64h armv6m armv7k armv7m armv7em armv8m.main armv8.1m.main
-      will use ld-classic for: armv6 armv7 armv7s i386 armv6m armv7k armv7m armv7em
-      LTO support using: LLVM version 17.0.0 (static support for 29, runtime is 29)
-      TAPI support using: Apple TAPI version 17.0.0 (tapi-1700.3.8)
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/opt/homebrew/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:6 (project)"
-    message: |
-      Running the C compiler's linker: "/usr/bin/ld" "-V"
-      ld: unknown options: -V
-  -
-    kind: "message-v1"
-    backtrace:
-      - "/opt/homebrew/share/cmake/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeDetermineCompilerABI.cmake:299 (cmake_determine_linker_id)"
-      - "/opt/homebrew/share/cmake/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
-      - "CMakeLists.txt:6 (project)"
-    message: |
-      Running the C compiler's linker: "/usr/bin/ld" "--version"
-      ld: unknown options: --version
+      exitCode: 2
 ...

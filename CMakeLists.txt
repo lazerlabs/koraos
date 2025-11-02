@@ -10,6 +10,10 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 # Build configuration
 set(RPI_VERSION "4" CACHE STRING "Raspberry Pi version (3 or 4)")
+
+option(BUILD_QEMU_VARIANT "Build kernel image configured for QEMU" ON)
+option(BUILD_HW_VARIANT "Build kernel image configured for physical hardware" ON)
+
 set(BOOTMNT "/workspace/build/boot" CACHE PATH "Boot mount directory")
 
 # Directories
@@ -33,7 +37,6 @@ set(C_FLAGS
     -Wall
     -mgeneral-regs-only
     -DRPI_VERSION=${RPI_VERSION}
-    -DQEMU_TESTING
 )
 
 # Assembly flags
@@ -44,74 +47,139 @@ set(ASM_FLAGS
 # Collect source files
 file(GLOB C_SOURCES "${SRC_DIR}/*.c")
 file(GLOB ASM_SOURCES "${SRC_DIR}/*.S" "${SRC_DIR}/*.s")
+set(KERNEL_SOURCES ${C_SOURCES} ${ASM_SOURCES})
 
-# Create kernel executable
-add_executable(kernel8.elf
-    ${C_SOURCES}
-    ${ASM_SOURCES}
-)
+include(CMakeParseArguments)
 
-# Set target properties
-set_target_properties(kernel8.elf PROPERTIES
-    SUFFIX ""
-    LINK_DEPENDS ${LINKER_SCRIPT}
-)
+if(NOT OBJCOPY)
+    find_program(OBJCOPY llvm-objcopy)
+endif()
 
-# Include directories
-target_include_directories(kernel8.elf PRIVATE ${INCLUDE_DIR})
+if(NOT OBJCOPY)
+    message(FATAL_ERROR "llvm-objcopy not found. Install the LLVM toolchain or provide OBJCOPY explicitly.")
+endif()
 
-# Apply compiler flags
-target_compile_options(kernel8.elf PRIVATE
-    $<$<COMPILE_LANGUAGE:C>:${C_FLAGS}>
-    $<$<COMPILE_LANGUAGE:ASM>:${ASM_FLAGS}>
-)
+function(add_kernel_variant VARIANT)
+    set(options QEMU)
+    set(oneValueArgs OUTPUT_NAME IMAGE_NAME BOOT_IMAGE_NAME MAP_NAME)
+    cmake_parse_arguments(KVAR "${options}" "${oneValueArgs}" "" ${ARGN})
 
-# Linker flags
-target_link_options(kernel8.elf PRIVATE
-    ${COMMON_FLAGS}
-    -Wl,-T,${LINKER_SCRIPT}
-    -Wl,-Map=${CMAKE_BINARY_DIR}/kernel8.map
-)
+    if(NOT KVAR_OUTPUT_NAME)
+        set(KVAR_OUTPUT_NAME ${VARIANT})
+    endif()
 
-# Create boot directory
+    if(NOT KVAR_IMAGE_NAME)
+        set(KVAR_IMAGE_NAME "${KVAR_OUTPUT_NAME}.img")
+    endif()
+
+    if(NOT KVAR_BOOT_IMAGE_NAME)
+        set(KVAR_BOOT_IMAGE_NAME ${KVAR_IMAGE_NAME})
+    endif()
+
+    if(NOT KVAR_MAP_NAME)
+        set(KVAR_MAP_NAME "${KVAR_OUTPUT_NAME}.map")
+    endif()
+
+    set(target "kernel_${VARIANT}")
+    add_executable(${target}
+        ${KERNEL_SOURCES}
+    )
+
+    set_target_properties(${target} PROPERTIES
+        OUTPUT_NAME ${KVAR_OUTPUT_NAME}
+        SUFFIX ".elf"
+        LINK_DEPENDS ${LINKER_SCRIPT}
+    )
+
+    target_include_directories(${target} PRIVATE ${INCLUDE_DIR})
+
+    target_compile_options(${target} PRIVATE
+        $<$<COMPILE_LANGUAGE:C>:${C_FLAGS}>
+        $<$<COMPILE_LANGUAGE:ASM>:${ASM_FLAGS}>
+    )
+
+    target_compile_definitions(${target} PRIVATE RPI_VERSION=${RPI_VERSION})
+    if(KVAR_QEMU)
+        target_compile_definitions(${target} PRIVATE QEMU_TESTING)
+    endif()
+
+    target_link_options(${target} PRIVATE
+        -T${LINKER_SCRIPT}
+        -Map=${CMAKE_BINARY_DIR}/${KVAR_MAP_NAME}
+    )
+
+    set(image_path "${CMAKE_BINARY_DIR}/${KVAR_IMAGE_NAME}")
+
+    add_custom_command(TARGET ${target} POST_BUILD
+        COMMAND ${OBJCOPY} -O binary $<TARGET_FILE:${target}> ${image_path}
+        COMMENT "Creating ${KVAR_IMAGE_NAME} binary"
+        BYPRODUCTS ${image_path}
+    )
+
+    add_custom_command(TARGET ${target} POST_BUILD
+        COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_BINARY_DIR}/boot
+        COMMAND ${CMAKE_COMMAND} -E copy ${image_path} ${CMAKE_BINARY_DIR}/boot/${KVAR_BOOT_IMAGE_NAME}
+        COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_SOURCE_DIR}/config.txt ${CMAKE_BINARY_DIR}/boot/config.txt
+        COMMENT "Copying ${KVAR_IMAGE_NAME} to local boot directory (${KVAR_BOOT_IMAGE_NAME})"
+    )
+
+    add_custom_target(install_${VARIANT}
+        COMMAND ${CMAKE_COMMAND} -E make_directory ${BOOTMNT}
+        COMMAND ${CMAKE_COMMAND} -E copy ${image_path} ${BOOTMNT}/${KVAR_BOOT_IMAGE_NAME}
+        COMMAND ${CMAKE_COMMAND} -E copy ${CMAKE_CURRENT_SOURCE_DIR}/config.txt ${BOOTMNT}/config.txt
+        DEPENDS ${target}
+        COMMENT "Copying ${KVAR_IMAGE_NAME} to boot mount: ${BOOTMNT}"
+    )
+
+    set_property(GLOBAL APPEND PROPERTY KERNEL_VARIANT_TARGETS ${target})
+    set_property(GLOBAL APPEND PROPERTY KERNEL_INSTALL_TARGETS install_${VARIANT})
+endfunction()
+
+if(BUILD_QEMU_VARIANT)
+    add_kernel_variant(qemu
+        QEMU
+        OUTPUT_NAME kernel8
+        IMAGE_NAME kernel8.img
+        BOOT_IMAGE_NAME kernel8-qemu.img
+        MAP_NAME kernel8.map
+    )
+endif()
+
+if(BUILD_HW_VARIANT)
+    add_kernel_variant(hw
+        OUTPUT_NAME kernel8-hw
+        IMAGE_NAME kernel8-hw.img
+        BOOT_IMAGE_NAME kernel8-rpi${RPI_VERSION}.img
+        MAP_NAME kernel8-hw.map
+    )
+endif()
+
+get_property(_kernel_targets GLOBAL PROPERTY KERNEL_VARIANT_TARGETS)
+if(NOT _kernel_targets)
+    message(FATAL_ERROR "No kernel variants are enabled. Enable at least one of BUILD_QEMU_VARIANT or BUILD_HW_VARIANT.")
+endif()
+
+get_property(_kernel_install_targets GLOBAL PROPERTY KERNEL_INSTALL_TARGETS)
+if(_kernel_install_targets)
+    add_custom_target(install_kernel DEPENDS ${_kernel_install_targets})
+endif()
+
+set(enabled_variants)
+if(BUILD_QEMU_VARIANT)
+    list(APPEND enabled_variants "QEMU")
+endif()
+if(BUILD_HW_VARIANT)
+    list(APPEND enabled_variants "hardware")
+endif()
+list(JOIN enabled_variants ", " enabled_variants_str)
+
+# Create boot directory ahead of time for user convenience
 file(MAKE_DIRECTORY ${CMAKE_BINARY_DIR}/boot)
-
-# Custom command to convert ELF to binary image
-add_custom_command(TARGET kernel8.elf POST_BUILD
-    COMMAND llvm-objcopy -O binary $<TARGET_FILE:kernel8.elf> ${CMAKE_BINARY_DIR}/kernel8.img
-    COMMENT "Creating kernel8.img binary"
-    BYPRODUCTS ${CMAKE_BINARY_DIR}/kernel8.img
-)
-
-# Optional: Custom target to copy to boot mount
-# This is a separate target so the build doesn't fail if BOOTMNT doesn't exist
-add_custom_target(install_kernel
-    COMMAND ${CMAKE_COMMAND} -E make_directory ${BOOTMNT}
-    COMMAND ${CMAKE_COMMAND} -E copy 
-        ${CMAKE_BINARY_DIR}/kernel8.img 
-        ${BOOTMNT}/kernel8-rpi${RPI_VERSION}.img
-    COMMAND ${CMAKE_COMMAND} -E copy 
-        ${CMAKE_CURRENT_SOURCE_DIR}/config.txt 
-        ${BOOTMNT}/config.txt
-    DEPENDS kernel8.elf
-    COMMENT "Copying kernel to boot mount: ${BOOTMNT}"
-)
-
-# Also create a local boot directory copy for convenience
-add_custom_command(TARGET kernel8.elf POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E make_directory ${CMAKE_BINARY_DIR}/boot
-    COMMAND ${CMAKE_COMMAND} -E copy 
-        ${CMAKE_BINARY_DIR}/kernel8.img 
-        ${CMAKE_BINARY_DIR}/boot/kernel8-rpi${RPI_VERSION}.img
-    COMMAND ${CMAKE_COMMAND} -E copy 
-        ${CMAKE_CURRENT_SOURCE_DIR}/config.txt 
-        ${CMAKE_BINARY_DIR}/boot/config.txt
-    COMMENT "Copying kernel to local boot directory"
-)
 
 # Print configuration
 message(STATUS "Building for Raspberry Pi ${RPI_VERSION}")
 message(STATUS "Boot mount directory: ${BOOTMNT}")
 message(STATUS "Compiler: ${CMAKE_C_COMPILER}")
 message(STATUS "Linker script: ${LINKER_SCRIPT}")
+message(STATUS "Kernel variants enabled: ${enabled_variants_str}")
 

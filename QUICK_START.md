@@ -32,16 +32,19 @@
 ## 🔧 Building
 
 ```bash
-# Quick build
+# Quick build (builds QEMU + hardware images)
 ./build.sh
+
+# Only build the QEMU testing image
+./build.sh --qemu
+
+# Hardware-focused build with Release optimizations
+./build.sh --variant hw --release
 
 # Or use CMake directly
 mkdir -p build && cd build
 cmake ..
 cmake --build .
-
-# Original Makefile still works too!
-make
 ```
 
 ## ✅ Verification

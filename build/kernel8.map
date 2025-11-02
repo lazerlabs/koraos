@@ -1,233 +1,135 @@
-
-Merging program properties
-
-
-Discarded input sections
-
- .llvm_addrsig  0x0000000000000000        0x1 CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
- .llvm_addrsig  0x0000000000000000        0x3 CMakeFiles/kernel8.elf.dir/src/kernel.c.obj
- .llvm_addrsig  0x0000000000000000        0x2 CMakeFiles/kernel8.elf.dir/src/memory_access.c.obj
- .llvm_addrsig  0x0000000000000000        0x2 CMakeFiles/kernel8.elf.dir/src/mini_uart.c.obj
- .note.gnu.property
-                0x0000000000000000        0x0 CMakeFiles/kernel8.elf.dir/src/utils.S.obj
-
-Memory Configuration
-
-Name             Origin             Length             Attributes
-*default*        0x0000000000000000 0xffffffffffffffff
-
-Linker script and memory map
-
-                0x0000000000080000                . = 0x80000
-                0x0000000000080000                kernel_start = .
-
-.boot           0x0000000000080000    0x800a0
- *boot*.o(.text)
- *boot*.obj(.text)
- .text          0x0000000000080000    0x800a0 CMakeFiles/kernel8.elf.dir/src/boot.S.obj
-                0x0000000000100000                _start
-
-.text           0x00000000001000a0      0x480
- *(EXCLUDE_FILE(shared/*.o) .text .text.[!p]*)
- .text          0x00000000001000a0      0x168 CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
-                0x00000000001000a0                gpio_pin_set_func
-                0x0000000000100170                gpio_pin_enable
- *fill*         0x0000000000100208        0x8 
- .text          0x0000000000100210       0x30 CMakeFiles/kernel8.elf.dir/src/kernel.c.obj
-                0x0000000000100210                kernel_main
- .text          0x0000000000100240      0x154 CMakeFiles/kernel8.elf.dir/src/memory_access.c.obj
-                0x0000000000100240                read8
-                0x0000000000100260                write8
-                0x0000000000100280                read16
-                0x00000000001002a0                write16
-                0x00000000001002c0                read32
-                0x00000000001002e0                write32
-                0x0000000000100300                read64
-                0x0000000000100320                write64
-                0x0000000000100340                write
-                0x0000000000100370                read
- *fill*         0x0000000000100394        0xc 
- .text          0x00000000001003a0      0x154 CMakeFiles/kernel8.elf.dir/src/mini_uart.c.obj
-                0x00000000001003a0                uart_init
-                0x0000000000100440                uart_putc
-                0x00000000001004b0                uart_getc
- .text          0x00000000001004f4       0x10 CMakeFiles/kernel8.elf.dir/src/mm.S.obj
-                0x00000000001004f4                memzero
- .text          0x0000000000100504       0x1c CMakeFiles/kernel8.elf.dir/src/utils.S.obj
-                0x0000000000100504                delay
-                0x0000000000100510                put32
-                0x0000000000100518                get32
-
-.iplt           0x0000000000100520        0x0
- .iplt          0x0000000000100520        0x0 CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
-
-.rela.dyn       0x0000000000100520        0x0
- .rela.iplt     0x0000000000100520        0x0 CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
- .rela.text     0x0000000000100520        0x0 CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
-
-.data
- *(.data)
-                0x0000000000100520                __bss_start = .
-
-.igot.plt       0x0000000000100520        0x0
- .igot.plt      0x0000000000100520        0x0 CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
-
-.bss            0x0000000000100520        0x0
-                0x0000000000100520                bss = .
- *(.bss)
-                0x0000000000101000                . = ALIGN (0x1000)
-                0x0000000000101000                __bss_end = .
-                0x0000000000000ae0                __bss_size = (__bss_end - __bss_start)
-
-.vectors
- *(.vectors)
-                0x0000000000101000                . = ALIGN (0x10)
-                0x0000000000101000                stack_bottom = .
-
-.stack_fill     0x0000000000101000    0x10000
- FILL mask 0x00000000
-                0x0000000000111000                . = (. + 0x10000)
- *fill*         0x0000000000101000    0x10000 00000000
-                0x0000000000111000                stack_top = .
-                0x0000000000111000                . = ALIGN (0x1000)
-                0x0000000000111000                heap_bottom = .
-
-.heap_fill      0x0000000000111000  0x2000000
- FILL mask 0x00000000
-                0x0000000002111000                . = (. + 0x2000000)
- *fill*         0x0000000000111000  0x2000000 00000000
-                0x0000000002111000                heap_limit = .
-
-.kcoreprocesses
-                0x0000000002111000        0x0
-                0x0000000002111000                kcoreprocesses_rodata_start = .
- *(.rodata.kcoreprocesses)
- *(.data.kcoreprocesses)
-                0x0000000002111000                kcoreprocesses_rodata_end = .
-                0x0000000002111000                kcoreprocesses_start = .
- *(.text.kcoreprocesses)
-                0x0000000002111000                kcoreprocesses_end = .
-                0x0000000002200000                . = ALIGN (0x200000)
-                0x0000000002200000                kcode_end = .
-                0x0000000002400000                . = (. + 0x200000)
-
-.shared         0x0000000002400000        0x1
-                0x0000000002400000                shared_start = .
- *(.shared)
- *(.text.shared)
- *shared/*.o(.text*)
-                0x0000000002400000                . = ALIGN (0x8)
-                0x0000000002400000        0x1 BYTE 0x0
-                0x0000000002400001                shared_end = .
-                0x0000000002600000                . = ALIGN (0x200000)
-                0x0000000002600000                kfull_end = .
-LOAD CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
-LOAD CMakeFiles/kernel8.elf.dir/src/kernel.c.obj
-LOAD CMakeFiles/kernel8.elf.dir/src/memory_access.c.obj
-LOAD CMakeFiles/kernel8.elf.dir/src/mini_uart.c.obj
-LOAD CMakeFiles/kernel8.elf.dir/src/boot.S.obj
-LOAD CMakeFiles/kernel8.elf.dir/src/mm.S.obj
-LOAD CMakeFiles/kernel8.elf.dir/src/utils.S.obj
-OUTPUT(kernel8.elf elf64-littleaarch64)
-LOAD linker stubs
-
-.debug_abbrev   0x0000000000000000      0x2a2
- .debug_abbrev  0x0000000000000000       0xc0 CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
- .debug_abbrev  0x00000000000000c0       0x50 CMakeFiles/kernel8.elf.dir/src/kernel.c.obj
- .debug_abbrev  0x0000000000000110       0x79 CMakeFiles/kernel8.elf.dir/src/memory_access.c.obj
- .debug_abbrev  0x0000000000000189       0xb6 CMakeFiles/kernel8.elf.dir/src/mini_uart.c.obj
- .debug_abbrev  0x000000000000023f       0x21 CMakeFiles/kernel8.elf.dir/src/boot.S.obj
- .debug_abbrev  0x0000000000000260       0x21 CMakeFiles/kernel8.elf.dir/src/mm.S.obj
- .debug_abbrev  0x0000000000000281       0x21 CMakeFiles/kernel8.elf.dir/src/utils.S.obj
-
-.debug_info     0x0000000000000000      0x6ec
- .debug_info    0x0000000000000000      0x18a CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
- .debug_info    0x000000000000018a       0x46 CMakeFiles/kernel8.elf.dir/src/kernel.c.obj
- .debug_info    0x00000000000001d0      0x1b5 CMakeFiles/kernel8.elf.dir/src/memory_access.c.obj
- .debug_info    0x0000000000000385       0xb8 CMakeFiles/kernel8.elf.dir/src/mini_uart.c.obj
- .debug_info    0x000000000000043d      0x134 CMakeFiles/kernel8.elf.dir/src/boot.S.obj
- .debug_info    0x0000000000000571       0xa6 CMakeFiles/kernel8.elf.dir/src/mm.S.obj
- .debug_info    0x0000000000000617       0xd5 CMakeFiles/kernel8.elf.dir/src/utils.S.obj
-
-.debug_str_offsets
-                0x0000000000000000      0x184
- .debug_str_offsets
-                0x0000000000000000       0xb4 CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
- .debug_str_offsets
-                0x00000000000000b4       0x20 CMakeFiles/kernel8.elf.dir/src/kernel.c.obj
- .debug_str_offsets
-                0x00000000000000d4       0x68 CMakeFiles/kernel8.elf.dir/src/memory_access.c.obj
- .debug_str_offsets
-                0x000000000000013c       0x48 CMakeFiles/kernel8.elf.dir/src/mini_uart.c.obj
-
-.debug_str      0x0000000000000000      0x361
- .debug_str     0x0000000000000000      0x361 CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
-                                        0x227 (size before relaxing)
- .debug_str     0x0000000000000361       0x89 CMakeFiles/kernel8.elf.dir/src/kernel.c.obj
- .debug_str     0x0000000000000361      0x129 CMakeFiles/kernel8.elf.dir/src/memory_access.c.obj
- .debug_str     0x0000000000000361       0xec CMakeFiles/kernel8.elf.dir/src/mini_uart.c.obj
-
-.debug_addr     0x0000000000000000       0xb8
- .debug_addr    0x0000000000000000       0x18 CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
- .debug_addr    0x0000000000000018       0x18 CMakeFiles/kernel8.elf.dir/src/kernel.c.obj
- .debug_addr    0x0000000000000030       0x58 CMakeFiles/kernel8.elf.dir/src/memory_access.c.obj
- .debug_addr    0x0000000000000088       0x30 CMakeFiles/kernel8.elf.dir/src/mini_uart.c.obj
-
-.comment        0x0000000000000000       0x1e
- .comment       0x0000000000000000       0x1e CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
-                                         0x1f (size before relaxing)
- .comment       0x000000000000001e       0x1f CMakeFiles/kernel8.elf.dir/src/kernel.c.obj
- .comment       0x000000000000001e       0x1f CMakeFiles/kernel8.elf.dir/src/memory_access.c.obj
- .comment       0x000000000000001e       0x1f CMakeFiles/kernel8.elf.dir/src/mini_uart.c.obj
-
-.note.GNU-stack
-                0x0000000000000000        0x0
- .note.GNU-stack
-                0x0000000000000000        0x0 CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
- .note.GNU-stack
-                0x0000000000000000        0x0 CMakeFiles/kernel8.elf.dir/src/kernel.c.obj
- .note.GNU-stack
-                0x0000000000000000        0x0 CMakeFiles/kernel8.elf.dir/src/memory_access.c.obj
- .note.GNU-stack
-                0x0000000000000000        0x0 CMakeFiles/kernel8.elf.dir/src/mini_uart.c.obj
-
-.debug_frame    0x0000000000000000      0x2a0
- .debug_frame   0x0000000000000000       0x58 CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
- .debug_frame   0x0000000000000058       0x38 CMakeFiles/kernel8.elf.dir/src/kernel.c.obj
- .debug_frame   0x0000000000000090      0x158 CMakeFiles/kernel8.elf.dir/src/memory_access.c.obj
- .debug_frame   0x00000000000001e8       0xb8 CMakeFiles/kernel8.elf.dir/src/mini_uart.c.obj
-
-.debug_line     0x0000000000000000      0x4eb
- .debug_line    0x0000000000000000      0x136 CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
- .debug_line    0x0000000000000136       0x81 CMakeFiles/kernel8.elf.dir/src/kernel.c.obj
- .debug_line    0x00000000000001b7      0x12c CMakeFiles/kernel8.elf.dir/src/memory_access.c.obj
- .debug_line    0x00000000000002e3      0x10e CMakeFiles/kernel8.elf.dir/src/mini_uart.c.obj
- .debug_line    0x00000000000003f1       0x69 CMakeFiles/kernel8.elf.dir/src/boot.S.obj
- .debug_line    0x000000000000045a       0x47 CMakeFiles/kernel8.elf.dir/src/mm.S.obj
- .debug_line    0x00000000000004a1       0x4a CMakeFiles/kernel8.elf.dir/src/utils.S.obj
-
-.debug_line_str
-                0x0000000000000000      0x1ab
- .debug_line_str
-                0x0000000000000000      0x1ab CMakeFiles/kernel8.elf.dir/src/gpio.c.obj
-                                         0xb1 (size before relaxing)
- .debug_line_str
-                0x00000000000001ab       0x7a CMakeFiles/kernel8.elf.dir/src/kernel.c.obj
- .debug_line_str
-                0x00000000000001ab       0x99 CMakeFiles/kernel8.elf.dir/src/memory_access.c.obj
- .debug_line_str
-                0x00000000000001ab       0x91 CMakeFiles/kernel8.elf.dir/src/mini_uart.c.obj
- .debug_line_str
-                0x00000000000001ab       0x4d CMakeFiles/kernel8.elf.dir/src/boot.S.obj
- .debug_line_str
-                0x00000000000001ab       0x4b CMakeFiles/kernel8.elf.dir/src/mm.S.obj
- .debug_line_str
-                0x00000000000001ab       0x4e CMakeFiles/kernel8.elf.dir/src/utils.S.obj
-
-.debug_aranges  0x0000000000000000       0x90
- .debug_aranges
-                0x0000000000000000       0x30 CMakeFiles/kernel8.elf.dir/src/boot.S.obj
- .debug_aranges
-                0x0000000000000030       0x30 CMakeFiles/kernel8.elf.dir/src/mm.S.obj
- .debug_aranges
-                0x0000000000000060       0x30 CMakeFiles/kernel8.elf.dir/src/utils.S.obj
+             VMA              LMA     Size Align Out     In      Symbol
+               0                0    80000     1 . = 0x80000
+           80000                0        0     1 kernel_start = .
+           80000            80000      53c    16 .text
+           80000            80000       68     8         CMakeFiles/kernel_qemu.dir/src/boot.S.obj:(.text)
+           80000            80000        0     1                 $x
+           80000            80000        0     1                 _start
+           80010            80010        0     1                 primary_core
+           80020            80020        0     1                 clear_bss
+           80030            80030        0     1                 bss_cleared
+           80038            80038        0     1                 CORE_PARK
+           8003c            8003c        0     1                 SECONDARY_WAIT
+           80044            80044        0     1                 hang
+           80050            80050        0     1                 $d
+           80070            80070      168    16         CMakeFiles/kernel_qemu.dir/src/gpio.c.obj:(.text)
+           80070            80070        0     1                 $x
+           80070            80070       c8     1                 gpio_pin_set_func
+           80140            80140       98     1                 gpio_pin_enable
+           801e0            801e0       30    16         CMakeFiles/kernel_qemu.dir/src/kernel.c.obj:(.text)
+           801e0            801e0        0     1                 $x
+           801e0            801e0       30     1                 kernel_main
+           80210            80210      154    16         CMakeFiles/kernel_qemu.dir/src/memory_access.c.obj:(.text)
+           80210            80210        0     1                 $x
+           80210            80210       18     1                 read8
+           80230            80230       20     1                 write8
+           80250            80250       18     1                 read16
+           80270            80270       20     1                 write16
+           80290            80290       18     1                 read32
+           802b0            802b0       20     1                 write32
+           802d0            802d0       18     1                 read64
+           802f0            802f0       20     1                 write64
+           80310            80310       2c     1                 write
+           80340            80340       24     1                 read
+           80370            80370      1c0    16         CMakeFiles/kernel_qemu.dir/src/mini_uart.c.obj:(.text)
+           80370            80370        0     1                 $x
+           80370            80370      148     1                 uart_init
+           804c0            804c0       3c     1                 uart_putc
+           80500            80500       30     1                 uart_getc
+           80530            80530        c     4         CMakeFiles/kernel_qemu.dir/src/utils.S.obj:(.text)
+           80530            80530        0     1                 $x
+           80530            80530        0     1                 delay
+           8053c            8053c        0     1 __bss_start = .
+           8053c            8053c        0     1 __bss_end = .
+           8053c            8053c        0     1 __bss_size = __bss_end - __bss_start
+           8053c            8053c        4     1 . = ALIGN(16)
+           80540            80540        0     1 stack_bottom = .
+           80540            80540    10000     1 .stack
+           80540            80540    10000     1         . = . + 0x10000
+           90540            90540        0     1 stack_top = .
+           90540            90540        0     1 . = ALIGN(16)
+           90540            90540        0     1 heap_bottom = .
+           90540            90540        0     1 _end = .
+               0                0      28a     1 .debug_abbrev
+               0                0       c0     1         CMakeFiles/kernel_qemu.dir/src/gpio.c.obj:(.debug_abbrev)
+               0                0        0     1                 $d
+              c0               c0       50     1         CMakeFiles/kernel_qemu.dir/src/kernel.c.obj:(.debug_abbrev)
+              c0               c0        0     1                 $d
+             110              110       79     1         CMakeFiles/kernel_qemu.dir/src/memory_access.c.obj:(.debug_abbrev)
+             110              110        0     1                 $d
+             189              189       bf     1         CMakeFiles/kernel_qemu.dir/src/mini_uart.c.obj:(.debug_abbrev)
+             189              189        0     1                 $d
+             248              248       21     1         CMakeFiles/kernel_qemu.dir/src/boot.S.obj:(.debug_abbrev)
+             248              248        0     1                 $d
+             269              269       21     1         CMakeFiles/kernel_qemu.dir/src/utils.S.obj:(.debug_abbrev)
+             269              269        0     1                 $d
+               0                0      752     1 .debug_info
+               0                0      18a     1         CMakeFiles/kernel_qemu.dir/src/gpio.c.obj:(.debug_info)
+               0                0        0     1                 $d
+             18a              18a       46     1         CMakeFiles/kernel_qemu.dir/src/kernel.c.obj:(.debug_info)
+             18a              18a        0     1                 $d
+             1d0              1d0      1b5     1         CMakeFiles/kernel_qemu.dir/src/memory_access.c.obj:(.debug_info)
+             1d0              1d0        0     1                 $d
+             385              385      1d9     1         CMakeFiles/kernel_qemu.dir/src/mini_uart.c.obj:(.debug_info)
+             385              385        0     1                 $d
+             55e              55e      14d     1         CMakeFiles/kernel_qemu.dir/src/boot.S.obj:(.debug_info)
+             55e              55e        0     1                 $d
+             6ab              6ab       a7     1         CMakeFiles/kernel_qemu.dir/src/utils.S.obj:(.debug_info)
+             6ab              6ab        0     1                 $d
+               0                0      1fc     1 .debug_str_offsets
+               0                0       b4     1         CMakeFiles/kernel_qemu.dir/src/gpio.c.obj:(.debug_str_offsets)
+               0                0        0     1                 $d
+              b4               b4       20     1         CMakeFiles/kernel_qemu.dir/src/kernel.c.obj:(.debug_str_offsets)
+              b4               b4        0     1                 $d
+              d4               d4       68     1         CMakeFiles/kernel_qemu.dir/src/memory_access.c.obj:(.debug_str_offsets)
+              d4               d4        0     1                 $d
+             13c              13c       c0     1         CMakeFiles/kernel_qemu.dir/src/mini_uart.c.obj:(.debug_str_offsets)
+             13c              13c        0     1                 $d
+               0                0      3bf     1 .debug_str
+               0                0      3bf     1         <internal>:(.debug_str)
+               0                0       a8     1 .debug_addr
+               0                0       18     1         CMakeFiles/kernel_qemu.dir/src/gpio.c.obj:(.debug_addr)
+               0                0        0     1                 $d
+              18               18       18     1         CMakeFiles/kernel_qemu.dir/src/kernel.c.obj:(.debug_addr)
+              18               18        0     1                 $d
+              30               30       58     1         CMakeFiles/kernel_qemu.dir/src/memory_access.c.obj:(.debug_addr)
+              30               30        0     1                 $d
+              88               88       20     1         CMakeFiles/kernel_qemu.dir/src/mini_uart.c.obj:(.debug_addr)
+              88               88        0     1                 $d
+               0                0       3b     1 .comment
+               0                0       3b     1         <internal>:(.comment)
+               0                0      258     8 .debug_frame
+               0                0       58     8         CMakeFiles/kernel_qemu.dir/src/gpio.c.obj:(.debug_frame)
+               0                0        0     1                 $d
+              58               58       38     8         CMakeFiles/kernel_qemu.dir/src/kernel.c.obj:(.debug_frame)
+              58               58        0     1                 $d
+              90               90      158     8         CMakeFiles/kernel_qemu.dir/src/memory_access.c.obj:(.debug_frame)
+              90               90        0     1                 $d
+             1e8              1e8       70     8         CMakeFiles/kernel_qemu.dir/src/mini_uart.c.obj:(.debug_frame)
+             1e8              1e8        0     1                 $d
+               0                0      4c4     1 .debug_line
+               0                0      136     1         CMakeFiles/kernel_qemu.dir/src/gpio.c.obj:(.debug_line)
+               0                0        0     1                 $d
+             136              136       81     1         CMakeFiles/kernel_qemu.dir/src/kernel.c.obj:(.debug_line)
+             136              136        0     1                 $d
+             1b7              1b7      12c     1         CMakeFiles/kernel_qemu.dir/src/memory_access.c.obj:(.debug_line)
+             1b7              1b7        0     1                 $d
+             2e3              2e3      143     1         CMakeFiles/kernel_qemu.dir/src/mini_uart.c.obj:(.debug_line)
+             2e3              2e3        0     1                 $d
+             426              426       58     1         CMakeFiles/kernel_qemu.dir/src/boot.S.obj:(.debug_line)
+             426              426        0     1                 $d
+             47e              47e       46     1         CMakeFiles/kernel_qemu.dir/src/utils.S.obj:(.debug_line)
+             47e              47e        0     1                 $d
+               0                0      1dc     1 .debug_line_str
+               0                0      1dc     1         <internal>:(.debug_line_str)
+               0                0       60     1 .debug_aranges
+               0                0       30     1         CMakeFiles/kernel_qemu.dir/src/boot.S.obj:(.debug_aranges)
+               0                0        0     1                 $d
+              30               30       30     1         CMakeFiles/kernel_qemu.dir/src/utils.S.obj:(.debug_aranges)
+              30               30        0     1                 $d
+               0                0      8d0     8 .symtab
+               0                0      8d0     8         <internal>:(.symtab)
+               0                0       ad     1 .shstrtab
+               0                0       ad     1         <internal>:(.shstrtab)
+               0                0      241     1 .strtab
+               0                0      241     1         <internal>:(.strtab)
