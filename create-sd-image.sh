@@ -73,7 +73,7 @@ done
 
 if [[ ! -f "$kernel_src" ]]; then
     echo "Kernel image not found at $kernel_src" >&2
-    echo "Run ./build-kernel.sh (or your build of choice) before creating the SD image." >&2
+    echo "Build the kernel first (e.g. ./build.sh --hw) before creating the SD image." >&2
     exit 1
 fi
 
@@ -192,4 +192,3 @@ esac
 trap - EXIT
 
 echo "SD card image ready at $image_path"
-
