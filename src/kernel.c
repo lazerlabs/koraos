@@ -1,15 +1,12 @@
 #include "mini_uart.h"
+#include "console.h"
 
 void kernel_main(void) {
     uart_init();
     uart_putc('K');
+    uart_puts("Hello, world!\n");
 
-    while (1) {
-        unsigned char c = uart_getc();
-        uart_putc(c);
+    console_init(); 
+    console_run();
 
-        /*if (c == '\r') {
-            uart_putc('\n');
-        }*/
-    }
 }

@@ -128,3 +128,43 @@ unsigned char uart_getc(void) {
     return (unsigned char)(REGS_AUX->mu_io & 0xFF);
 }
 #endif
+
+// Hardware-agnostic helper function
+void uart_puts(const char *str) {
+    while (*str) {
+        if (*str == '\n') {
+            uart_putc('\r');
+        }
+        uart_putc(*str++);
+    }
+}
+
+int uart_readline(char *buffer, int max_len) {
+    int pos = 0;
+    
+    while (1) {
+        unsigned char c = uart_getc();
+        
+        // Handle carriage return or newline
+        if (c == '\r' || c == '\n') {
+            uart_puts("\r\n");
+            buffer[pos] = '\0';
+            return pos;
+        }
+        
+        // Handle backspace (ASCII 8 or 127)
+        if (c == 8 || c == 127) {
+            if (pos > 0) {
+                pos--;
+                uart_puts("\b \b");  // Move back, space, move back again
+            }
+            continue;
+        }
+        
+        // Handle printable characters
+        if (c >= 32 && c < 127 && pos < max_len - 1) {
+            buffer[pos++] = c;
+            uart_putc(c);  // Echo character
+        }
+    }
+}
