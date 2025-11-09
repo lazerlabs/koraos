@@ -1,5 +1,0 @@
-/Users/spider/dev/kora/koraos/build/CMakeFiles/kernel_qemu.dir
-/Users/spider/dev/kora/koraos/build/CMakeFiles/install_qemu.dir
-/Users/spider/dev/kora/koraos/build/CMakeFiles/install_kernel.dir
-/Users/spider/dev/kora/koraos/build/CMakeFiles/edit_cache.dir
-/Users/spider/dev/kora/koraos/build/CMakeFiles/rebuild_cache.dir

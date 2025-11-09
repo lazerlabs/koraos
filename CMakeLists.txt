@@ -18,8 +18,17 @@ set(BOOTMNT "/workspace/build/boot" CACHE PATH "Boot mount directory")
 
 # Directories
 set(SRC_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
+set(LIB_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src/lib")
 set(INCLUDE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/include")
 set(LINKER_SCRIPT "${SRC_DIR}/linker.ld")
+
+# Gather sources from main src and src/lib to make sure lib sources are linked in
+file(GLOB KERNEL_C_SOURCES "${SRC_DIR}/*.c")
+file(GLOB KERNEL_ASM_SOURCES "${SRC_DIR}/*.S" "${SRC_DIR}/*.s")
+file(GLOB LIB_C_SOURCES "${LIB_DIR}/*.c")
+file(GLOB LIB_ASM_SOURCES "${LIB_DIR}/*.S" "${LIB_DIR}/*.s")
+
+set(KERNEL_SOURCES ${KERNEL_C_SOURCES} ${KERNEL_ASM_SOURCES} ${LIB_C_SOURCES} ${LIB_ASM_SOURCES})
 
 # Common compiler flags
 set(COMMON_FLAGS
@@ -43,11 +52,6 @@ set(C_FLAGS
 set(ASM_FLAGS
     ${COMMON_FLAGS}
 )
-
-# Collect source files
-file(GLOB C_SOURCES "${SRC_DIR}/*.c")
-file(GLOB ASM_SOURCES "${SRC_DIR}/*.S" "${SRC_DIR}/*.s")
-set(KERNEL_SOURCES ${C_SOURCES} ${ASM_SOURCES})
 
 include(CMakeParseArguments)
 
